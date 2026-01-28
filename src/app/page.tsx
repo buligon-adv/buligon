@@ -115,7 +115,8 @@ export default function Home() {
       {/* Áreas em Destaque */}
       <Section backgroundColor="bg-gray-50/50" className="border-y border-gray-100 overflow-hidden relative">
         <div className="absolute top-1/2 left-0 w-full h-px bg-gray-100 -z-10" />
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8 animate-fadeInUp">
+        
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
           <div className="max-w-2xl">
             <span className="text-bronze uppercase tracking-[0.3em] text-xs font-bold mb-4 block">Especialidades</span>
             <h2 className="text-4xl sm:text-5xl font-serif text-navy leading-tight">

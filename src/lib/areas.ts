@@ -15,6 +15,24 @@ export interface PracticeArea {
 
 export const practiceAreas: PracticeArea[] = [
   {
+    id: '4',
+    slug: 'direito-eleitoral',
+    title: 'Direito Eleitoral',
+    shortDescription: 'Assessoria jurídica estratégica para candidatos, partidos e gestores públicos em todo o ciclo eleitoral.',
+    fullDescription: `O Direito Eleitoral é a espinha dorsal de nossa atuação. Oferecemos suporte jurídico especializado e multidisciplinar para candidatos, partidos políticos e coligações. Nossa expertise abrange desde o registro de candidatura e consultoria preventiva em propaganda eleitoral até a defesa em ações de investigação judicial eleitoral e prestação de contas.`,
+    topics: [
+      'Registro de candidaturas e impugnações',
+      'Consultoria estratégica em propaganda eleitoral',
+      'Defesa em AIJE, AIME e Representações',
+      'Assessoria em arrecadação e gastos de campanha',
+      'Prestação de contas eleitorais e partidárias',
+      'Suporte jurídico em convenções partidárias',
+      'Recursos perante os Tribunais Regionais e TSE'
+    ],
+    cta: 'Falar com especialista em Direito Eleitoral',
+    featured: true
+  },
+  {
     id: '1',
     slug: 'direito-constitucional',
     title: 'Direito Constitucional',
@@ -63,23 +81,6 @@ export const practiceAreas: PracticeArea[] = [
       'Litígios tributários em todos os níveis'
     ],
     cta: 'Agendar consultoria tributária',
-    featured: true
-  },
-  {
-    id: '4',
-    slug: 'direito-eleitoral',
-    title: 'Direito Eleitoral',
-    shortDescription: 'Consultoria em legislação eleitoral, defesa em processos eleitorais e compliance.',
-    fullDescription: `Oferecemos suporte especializado a candidatos, partidos políticos e organizações em questões eleitorais. Expertise em legislação eleitoral, compliance de campanha e defesa em processos eleitorais.`,
-    topics: [
-      'Consultoria a candidatos e partidos políticos',
-      'Compliance de campanha eleitoral',
-      'Defesa em processos eleitorais',
-      'Interpretação de legislação eleitoral',
-      'Recursos eleitorais',
-      'Assessoria em conflitos eleitorais'
-    ],
-    cta: 'Falar com especialista em direito eleitoral',
     featured: false
   },
   {
