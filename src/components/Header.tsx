@@ -9,18 +9,18 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
+      <nav className="container mx-auto px-4 sm:px-6 lg:px-12">
+        <div className="flex justify-between items-center h-24">
           {/* Logo */}
           <Link href="/" className="flex items-center">
             {/* Logo Desktop */}
             <Image
               src="/Logo Buligon Header Dektop.png"
               alt="Buligon Advogados"
-              width={220}
-              height={60}
-              className="hidden md:block h-14 w-auto"
+              width={250}
+              height={70}
+              className="hidden md:block h-16 w-auto"
               priority
               quality={100}
             />
@@ -28,23 +28,24 @@ export default function Header() {
             <Image
               src="/Logo Buligon Header Mobile.png"
               alt="Buligon Advogados"
-              width={180}
-              height={48}
-              className="md:hidden h-11 w-auto"
+              width={200}
+              height={55}
+              className="md:hidden h-12 w-auto"
               priority
               quality={100}
             />
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-10">
             {siteConfig.navigation.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-gray-700 hover:text-bronze font-medium transition-colors"
+                className="text-navy hover:text-bronze font-bold text-[10px] uppercase tracking-[0.2em] transition-all relative group"
               >
                 {item.label}
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-bronze transition-all group-hover:w-full" />
               </Link>
             ))}
           </div>
@@ -55,9 +56,9 @@ export default function Header() {
               href={siteConfig.social.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-2 rounded-lg font-semibold text-white transition-colors hover:opacity-90 bg-navy"
+              className="px-8 py-3 bg-navy text-white text-[10px] uppercase tracking-widest font-bold hover:bg-bronze transition-all shadow-lg active:scale-95"
             >
-              Falar no WhatsApp
+              Consultoria
             </a>
           </div>
 
