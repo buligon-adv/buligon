@@ -39,9 +39,12 @@ export default function Hero({
       <div className="container mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
         <div className="max-w-4xl">
           <div className="inline-block h-1 w-20 bg-bronze mb-8 animate-pulse" />
-          <h1 className="text-5xl sm:text-6xl lg:text-8xl font-serif text-white mb-8 leading-[1.1] tracking-tight">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-serif text-white mb-8 leading-[1.2] tracking-normal">
             {title.split(' ').map((word, i) => (
-              <span key={i} className={i % 2 === 1 ? 'text-bronze italic block sm:inline' : 'block sm:inline mr-4'}>
+              <span 
+                key={i} 
+                className={`inline-block mr-[0.25em] last:mr-0 ${i % 2 === 1 ? 'text-bronze italic' : ''}`}
+              >
                 {word}
               </span>
             ))}

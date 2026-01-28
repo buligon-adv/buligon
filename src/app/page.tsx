@@ -5,6 +5,7 @@ import PracticeAreasGrid from '@/components/PracticeAreasGrid';
 import Testimonials from '@/components/Testimonials';
 import FAQ from '@/components/FAQ';
 import CTA from '@/components/CTA';
+import StatCounter from '@/components/StatCounter';
 import { siteConfig } from '@/lib/site';
 import { getFeaturedAreas } from '@/lib/areas';
 import { generateMetadata } from '@/lib/seo';
@@ -76,11 +77,15 @@ export default function Home() {
             
             <div className="mt-12 grid grid-cols-2 gap-8 border-t border-gray-100 pt-12">
               <div className="animate-fadeInUp delay-100">
-                <span className="block text-4xl font-serif text-bronze mb-2">15+</span>
+                <span className="block text-4xl font-serif text-bronze mb-2">
+                  <StatCounter end={15} suffix="+" />
+                </span>
                 <span className="text-[10px] uppercase tracking-widest font-bold text-navy-light opacity-60">Anos de Experiência</span>
               </div>
               <div className="animate-fadeInUp delay-200">
-                <span className="block text-4xl font-serif text-bronze mb-2">1k+</span>
+                <span className="block text-4xl font-serif text-bronze mb-2">
+                  <StatCounter end={1000} suffix="+" />
+                </span>
                 <span className="text-[10px] uppercase tracking-widest font-bold text-navy-light opacity-60">Demandas Resolvidas</span>
               </div>
             </div>
