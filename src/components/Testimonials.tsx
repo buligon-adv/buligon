@@ -37,17 +37,20 @@ export default function Testimonials({
 
   return (
     <div>
-      <h2 className="text-3xl font-bold mb-12 text-center text-navy">
-        O que nossos clientes dizem
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="text-center mb-12">
+        <span className="text-bronze uppercase tracking-[0.3em] text-xs font-semibold mb-4 block">Feedback</span>
+        <h2 className="text-3xl sm:text-4xl font-sans font-semibold text-white">
+          O que nossos clientes dizem
+        </h2>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {items.map((testimonial, index) => (
-          <div key={index} className="p-6 bg-white rounded-lg border border-gray-100">
-            <div className="flex items-center mb-4">
+          <div key={index} className="p-8 bg-white/5 backdrop-blur-sm rounded-sm border border-white/10 hover:bg-white/10 transition-all duration-300">
+            <div className="flex items-center mb-6">
               {[...Array(5)].map((_, i) => (
                 <svg
                   key={i}
-                  className="w-4 h-4 text-bronze"
+                  className="w-3.5 h-3.5 text-bronze mr-1"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -55,10 +58,10 @@ export default function Testimonials({
                 </svg>
               ))}
             </div>
-            <p className="text-gray-700 mb-4 italic">"{testimonial.quote}"</p>
+            <p className="text-gray-300 mb-6 italic text-sm leading-relaxed">"{testimonial.quote}"</p>
             <div>
-              <p className="font-semibold text-gray-900">{testimonial.author}</p>
-              <p className="text-sm text-gray-600">{testimonial.title}</p>
+              <p className="font-sans font-semibold text-white text-sm tracking-wide">{testimonial.author}</p>
+              <p className="text-xs text-gray-500 uppercase tracking-widest mt-1">{testimonial.title}</p>
             </div>
           </div>
         ))}

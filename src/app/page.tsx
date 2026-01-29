@@ -189,10 +189,13 @@ export default function Home() {
               icon: "03"
             }
           ].map((item, idx) => (
-            <div key={idx} className="flex flex-col group">
-              <span className="text-8xl font-sans font-semibold text-gray-50 group-hover:text-bronze/10 transition-colors duration-500 absolute -translate-y-12 -translate-x-4 pointer-events-none">
-                {item.icon}
-              </span>
+            <div key={idx} className="flex flex-col group relative">
+              <div className="mb-6 relative">
+                <img src="/icone logo buligon.svg" alt="" className="w-10 h-10 opacity-40 group-hover:opacity-100 transition-opacity duration-500" />
+                <span className="text-6xl font-sans font-semibold text-gray-50 absolute -top-4 -left-4 -z-10 group-hover:text-bronze/10 transition-colors duration-500">
+                  {item.icon}
+                </span>
+              </div>
               <h3 className="text-xl font-sans font-semibold text-navy mb-4 relative z-10">{item.title}</h3>
               <p className="text-gray-500 leading-relaxed text-sm relative z-10">{item.desc}</p>
             </div>
@@ -201,7 +204,7 @@ export default function Home() {
       </Section>
 
       {/* Testimonials */}
-      <div className="bg-navy py-24 sm:py-32 relative">
+      <div className="bg-navy py-12 sm:py-20 relative">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 pointer-events-none" />
         <Section backgroundColor="bg-transparent" className="py-0 sm:py-0">
           <Testimonials />

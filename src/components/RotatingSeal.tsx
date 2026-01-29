@@ -23,8 +23,8 @@ export default function RotatingSeal() {
       {/* Centro do Selo */}
       <div className="relative z-10 flex flex-col items-center justify-center">
         <div className="flex flex-col items-center">
-          <span className="text-bronze font-cursive text-5xl md:text-7xl leading-[0.8] block">20</span>
-          <span className="text-white/90 text-[10px] md:text-[12px] uppercase tracking-[0.4em] font-sans font-bold mt-1">Anos</span>
+          <img src="/icone logo buligon.svg" alt="Ícone Buligon" className="w-12 h-12 md:w-16 md:h-16 mb-2" />
+          <span className="text-white/90 text-[10px] md:text-[12px] uppercase tracking-[0.4em] font-sans font-bold">20 Anos</span>
         </div>
       </div>
       

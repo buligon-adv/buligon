@@ -15,20 +15,20 @@ interface FAQProps {
 
 export default function FAQ({
   items,
-  title = 'Dúvidas Frequentes',
-  description = 'Esclarecemos as questões mais comuns dos nossos clientes',
+  title,
+  description,
 }: FAQProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
     <div>
       {title && (
-        <>
-          <h2 className="text-3xl font-bold mb-4 text-navy">
+        <div className="mb-10 text-center lg:text-left">
+          <h2 className="text-3xl font-sans font-semibold mb-4 text-navy">
             {title}
           </h2>
-          {description && <p className="text-gray-600 mb-8 text-lg">{description}</p>}
-        </>
+          {description && <p className="text-gray-600 text-lg">{description}</p>}
+        </div>
       )}
 
       <div className="space-y-4">
