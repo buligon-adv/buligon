@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Playfair_Display, Inter } from "next/font/google";
+import { Geist, Geist_Mono, Playfair_Display, Inter, Barlow_Condensed, Great_Vibes } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -9,6 +9,19 @@ import { siteConfig } from "@/lib/site";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+});
+
+const barlowCondensed = Barlow_Condensed({
+  variable: "--font-barlow-condensed",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
+});
+
+const greatVibes = Great_Vibes({
+  variable: "--font-cursive",
+  subsets: ["latin"],
+  weight: ["400"],
 });
 
 const playfair = Playfair_Display({
@@ -30,8 +43,8 @@ export const metadata: Metadata = {
     "direito administrativo",
     "direito tributário",
     "direito constitucional",
-    "Belo Horizonte",
-    "MG",
+    "Curitiba",
+    "PR",
   ],
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
@@ -59,7 +72,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className="scroll-smooth" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${playfair.variable} ${geistMono.variable} antialiased font-sans bg-white text-navy`}
+        className={`${barlowCondensed.variable} ${inter.variable} ${playfair.variable} ${geistMono.variable} ${greatVibes.variable} antialiased font-sans bg-white text-navy`}
       >
         <Header />
         <main className="min-h-screen">

@@ -32,7 +32,7 @@ export default function AreasPage() {
       {/* Diferencial */}
       <Section backgroundColor="bg-gray-50">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6" style={{ color: 'var(--color-navy)' }}>
+          <h2 className="text-3xl font-semibold mb-6 uppercase tracking-wider" style={{ color: 'var(--color-navy)' }}>
             Nossa Abordagem
           </h2>
           <p className="text-gray-700 leading-relaxed mb-4">

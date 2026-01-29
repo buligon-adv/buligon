@@ -19,13 +19,13 @@ export default function PracticeAreaCard({
       className="group relative p-8 h-full flex flex-col transition-all duration-500 bg-white border-b border-gray-100 last:border-b-0 md:border-b-0 md:border-r md:last:border-r-0 hover:bg-navy"
     >
       <div className="flex justify-between items-start mb-12">
-        <span className="text-bronze font-serif text-2xl group-hover:text-white/50 transition-colors duration-500">
+        <span className="text-bronze font-sans font-semibold text-2xl group-hover:text-white/50 transition-colors duration-500">
           {formattedIndex}
         </span>
         <div className="w-10 h-px bg-bronze/30 group-hover:w-16 group-hover:bg-bronze transition-all duration-700" />
       </div>
 
-      <h3 className="text-2xl font-serif mb-4 text-navy group-hover:text-white transition-colors duration-500 leading-tight">
+      <h3 className="text-2xl font-sans font-semibold mb-4 text-navy group-hover:text-white transition-colors duration-500 leading-tight">
         {title}
       </h3>
       

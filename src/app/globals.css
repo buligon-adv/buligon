@@ -6,7 +6,7 @@
   --color-bronze: #BC9576;
   --color-bronze-light: #d4b59b;
   
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-barlow-condensed), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
 }
 
@@ -20,7 +20,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif;
+    @apply font-sans font-semibold tracking-tight;
   }
 }
 

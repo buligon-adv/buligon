@@ -9,22 +9,22 @@ export const siteConfig = {
   author: 'Buligon Advogados',
   
   // Contato
-  whatsapp: '+5531999999999', // Atualizar com número real
+  whatsapp: '+554130154161', 
   email: 'contato@buligonadvogados.adv.br',
-  phone: '+5531999999999',
+  phone: '+554130154161',
   
   // Endereço
   address: {
-    street: 'Rua exemplo, 123',
-    city: 'Belo Horizonte',
-    state: 'MG',
-    zipCode: '30000-000',
+    street: 'Rua Professor Macedo Filho, nº 315, Bom Retiro',
+    city: 'Curitiba',
+    state: 'PR',
+    zipCode: '80.520-340',
     country: 'Brasil'
   },
   
   // Redes sociais
   social: {
-    whatsapp: 'https://wa.me/5531999999999',
+    whatsapp: 'https://wa.me/554130154161',
     instagram: 'https://instagram.com/buligonadvogados',
     linkedin: 'https://linkedin.com/company/buligon-advogados',
   },

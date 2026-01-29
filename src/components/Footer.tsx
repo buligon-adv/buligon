@@ -35,7 +35,7 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <h4 className="font-serif text-lg mb-8 text-bronze italic">Navegação</h4>
+            <h4 className="font-sans font-semibold text-lg mb-8 text-bronze uppercase tracking-widest">Navegação</h4>
             <ul className="space-y-4">
               {siteConfig.navigation.map((item) => (
                 <li key={item.href}>
@@ -49,7 +49,7 @@ export default function Footer() {
 
           {/* Áreas */}
           <div>
-            <h4 className="font-serif text-lg mb-8 text-bronze italic">Links Úteis</h4>
+            <h4 className="font-sans font-semibold text-lg mb-8 text-bronze uppercase tracking-widest">Links Úteis</h4>
             <ul className="space-y-4">
               <li>
                 <Link href="/areas" className="text-gray-400 hover:text-white transition-colors text-sm font-light">
@@ -66,7 +66,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-serif text-lg mb-8 text-bronze italic">Escritório</h4>
+            <h4 className="font-sans font-semibold text-lg mb-8 text-bronze uppercase tracking-widest">Escritório</h4>
             <ul className="space-y-6 text-sm">
               <li className="flex gap-4">
                 <span className="text-bronze">Endereço:</span>
@@ -96,7 +96,7 @@ export default function Footer() {
           <p className="text-gray-500 text-[10px] uppercase tracking-widest">
             © {currentYear} {siteConfig.name}. Todos os direitos reservados.
           </p>
-          <div className="flex gap-8 text-[10px] uppercase tracking-[0.2em] font-bold text-gray-500">
+          <div className="flex gap-8 text-[10px] uppercase tracking-[0.2em] font-semibold text-gray-500">
              <span>OAB/MG</span>
              <a href="https://updo.com.br" target="_blank" className="hover:text-bronze transition-colors">By UPDO</a>
           </div>

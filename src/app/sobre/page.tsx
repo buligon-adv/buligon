@@ -60,7 +60,7 @@ export default function SobrePage() {
       <Section>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl font-bold mb-6" style={{ color: 'var(--color-navy)' }}>
+            <h2 className="text-3xl font-semibold mb-6 uppercase tracking-wider" style={{ color: 'var(--color-navy)' }}>
               Nossa História
             </h2>
             <p className="text-gray-700 mb-4 leading-relaxed">

@@ -54,14 +54,14 @@ export default async function AreaPage({ params }: PageProps) {
       <Section>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2">
-            <h2 className="text-2xl font-bold mb-6" style={{ color: 'var(--color-navy)' }}>
+            <h2 className="text-2xl font-semibold mb-6 uppercase tracking-wider" style={{ color: 'var(--color-navy)' }}>
               Sobre esta área
             </h2>
             <p className="text-gray-700 leading-relaxed mb-8 whitespace-pre-line">
               {area.fullDescription}
             </p>
 
-            <h3 className="text-xl font-bold mb-4" style={{ color: 'var(--color-navy)' }}>
+            <h3 className="text-xl font-semibold mb-4 uppercase tracking-wider" style={{ color: 'var(--color-navy)' }}>
               O que fazemos
             </h3>
             <ul className="space-y-3">

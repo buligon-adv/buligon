@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Hero from '@/components/Hero';
+import HeroSlider from '@/components/HeroSlider';
 import Section from '@/components/Section';
 import PracticeAreasGrid from '@/components/PracticeAreasGrid';
 import Testimonials from '@/components/Testimonials';
@@ -43,18 +44,48 @@ export default function Home() {
 
   return (
     <div className="overflow-hidden">
-      {/* Hero */}
-      <Hero
-        title="Excelência Jurídica em Cada Detalhe"
-        subtitle="Consultoria estratégica especializada em Direito Público e Administrativo. Transformamos complexidade em segurança jurídica."
-        cta={{
-          label: 'Consultoria Especializada',
-          href: siteConfig.social.whatsapp,
-        }}
-        secondaryCta={{
-          label: 'Conheça o Escritório',
-          href: '/sobre',
-        }}
+      {/* Hero Slider */}
+      <HeroSlider
+        slides={[
+          {
+            title: "Atuação Estratégica em Direito Eleitoral",
+            subtitle: "Consultoria e contencioso especializado para candidatos, partidos e coligações com foco em resultados e segurança jurídica em todas as fases do pleito.",
+            backgroundImage: "/Banner%2001%20Buligon.jpg",
+            cta: {
+              label: 'Falar com Especialista',
+              href: siteConfig.social.whatsapp,
+            },
+            secondaryCta: {
+              label: 'Ver Áreas',
+              href: '/areas',
+            }
+          },
+          {
+            title: "Excelência Jurídica em Curitiba",
+            subtitle: "Nosso escritório combina uma infraestrutura tecnológica de ponta com um ambiente clássico e privativo, projetado para oferecer o máximo conforto e sigilo em seus atendimentos.",
+            backgroundImage: "/Banner%2002%20Buligon.jpg",
+            cta: {
+              label: 'Agendar Visita',
+              href: '/sobre',
+            },
+            secondaryCta: {
+              label: 'Ver Localização',
+              href: '#faq',
+            }
+          },
+          {
+            title: "Excelência Jurídica em Cada Detalhe",
+            subtitle: "Consultoria estratégica especializada em Direito Público e Administrativo. Transformamos complexidade em segurança jurídica para gestores e empresas.",
+            cta: {
+              label: 'Consultoria Especializada',
+              href: siteConfig.social.whatsapp,
+            },
+            secondaryCta: {
+              label: 'Conheça o Escritório',
+              href: '/sobre',
+            }
+          }
+        ]}
       />
 
       {/* Seção Apresentação / Manifesto */}
@@ -62,8 +93,8 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <div className="relative order-2 lg:order-1 animate-fadeInUp">
             <div className="absolute -top-10 -left-10 w-40 h-40 bg-bronze/5 rounded-full blur-3xl" />
-            <span className="text-bronze uppercase tracking-[0.3em] text-xs font-bold mb-6 block">Sobre o Escritório</span>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-navy mb-8 leading-[1.2] relative">
+            <span className="text-bronze uppercase tracking-[0.3em] text-xs font-semibold mb-6 block">Sobre o Escritório</span>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-sans font-semibold text-navy mb-8 leading-[1.2] tracking-tight relative">
               Compromisso com a <span className="text-bronze italic">Justiça</span> e a <span className="text-bronze italic">Estratégia</span>
             </h2>
             <div className="space-y-6 text-gray-600 text-lg leading-relaxed">
@@ -77,13 +108,13 @@ export default function Home() {
             
             <div className="mt-12 grid grid-cols-2 gap-8 border-t border-gray-100 pt-12">
               <div className="animate-fadeInUp delay-100">
-                <span className="block text-4xl font-serif text-bronze mb-2">
+                <span className="block text-4xl font-sans font-semibold text-bronze mb-2">
                   <StatCounter end={15} suffix="+" />
                 </span>
                 <span className="text-[10px] uppercase tracking-widest font-bold text-navy-light opacity-60">Anos de Experiência</span>
               </div>
               <div className="animate-fadeInUp delay-200">
-                <span className="block text-4xl font-serif text-bronze mb-2">
+                <span className="block text-4xl font-sans font-semibold text-bronze mb-2">
                   <StatCounter end={1000} suffix="+" />
                 </span>
                 <span className="text-[10px] uppercase tracking-widest font-bold text-navy-light opacity-60">Demandas Resolvidas</span>
@@ -97,7 +128,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--color-navy-light)_0%,_#0C1F40_100%)] opacity-80" />
               <div className="relative z-20 text-center p-12">
                 <div className="w-20 h-px bg-bronze mx-auto mb-8" />
-                <h3 className="text-white font-serif italic text-3xl mb-4">Buligon Advogados</h3>
+                <h3 className="text-white font-sans font-semibold italic text-3xl mb-4">Buligon Advogados</h3>
                 <p className="text-bronze font-sans uppercase tracking-[0.2em] text-[10px] font-bold">Consultoria Jurídica de Alto Padrão</p>
               </div>
             </div>
@@ -106,7 +137,7 @@ export default function Home() {
                <div className="w-8 h-8 text-bronze mb-4">
                  <svg fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21L14.017 18C14.017 16.8954 13.1216 16 12.017 16L9.017 16V13H12.017C13.1216 13 14.017 12.1046 14.017 11V8L14.017 5L20.017 5L20.017 21L14.017 21ZM4.0166 21V5L10.0166 5L10.0166 11H7.0166V16H10.0166V21L4.0166 21Z"/></svg>
                </div>
-               <p className="font-serif italic text-navy leading-relaxed text-sm">"A segurança jurídica é o alicerce indispensável de qualquer conquista sustentável."</p>
+               <p className="font-sans italic font-semibold text-navy leading-relaxed text-sm">"A segurança jurídica é o alicerce indispensável de qualquer conquista sustentável."</p>
             </div>
           </div>
         </div>
@@ -118,8 +149,8 @@ export default function Home() {
         
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
           <div className="max-w-2xl">
-            <span className="text-bronze uppercase tracking-[0.3em] text-xs font-bold mb-4 block">Especialidades</span>
-            <h2 className="text-4xl sm:text-5xl font-serif text-navy leading-tight">
+            <span className="text-bronze uppercase tracking-[0.3em] text-xs font-semibold mb-4 block">Especialidades</span>
+            <h2 className="text-4xl sm:text-5xl font-sans font-semibold text-navy leading-tight">
               Nossa Expertise em <br /><span className="italic text-bronze">Direito Público</span>
             </h2>
           </div>
@@ -135,8 +166,8 @@ export default function Home() {
       {/* Diferenciais */}
       <Section backgroundColor="bg-white">
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <span className="text-bronze uppercase tracking-[0.3em] text-xs font-bold mb-4 block">Processo</span>
-          <h2 className="text-4xl sm:text-5xl font-serif text-navy mb-6">Excelência que gera confiança</h2>
+          <span className="text-bronze uppercase tracking-[0.3em] text-xs font-semibold mb-4 block">Processo</span>
+          <h2 className="text-4xl sm:text-5xl font-sans font-semibold text-navy mb-6">Excelência que gera confiança</h2>
           <div className="w-24 h-px bg-bronze/30 mx-auto" />
         </div>
 
@@ -159,10 +190,10 @@ export default function Home() {
             }
           ].map((item, idx) => (
             <div key={idx} className="flex flex-col group">
-              <span className="text-8xl font-serif text-gray-50 group-hover:text-bronze/10 transition-colors duration-500 absolute -translate-y-12 -translate-x-4 pointer-events-none">
+              <span className="text-8xl font-sans font-semibold text-gray-50 group-hover:text-bronze/10 transition-colors duration-500 absolute -translate-y-12 -translate-x-4 pointer-events-none">
                 {item.icon}
               </span>
-              <h3 className="text-xl font-serif text-navy mb-4 relative z-10">{item.title}</h3>
+              <h3 className="text-xl font-sans font-semibold text-navy mb-4 relative z-10">{item.title}</h3>
               <p className="text-gray-500 leading-relaxed text-sm relative z-10">{item.desc}</p>
             </div>
           ))}
@@ -181,8 +212,8 @@ export default function Home() {
       <Section backgroundColor="bg-white" id="faq">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           <div className="lg:col-span-4">
-            <span className="text-bronze uppercase tracking-[0.3em] text-xs font-bold mb-4 block">FAQ</span>
-            <h2 className="text-4xl font-serif text-navy mb-6">Dúvidas Frequentes</h2>
+            <span className="text-bronze uppercase tracking-[0.3em] text-xs font-semibold mb-4 block">FAQ</span>
+            <h2 className="text-4xl font-sans font-semibold text-navy mb-6">Dúvidas Frequentes</h2>
             <p className="text-gray-500 text-sm leading-relaxed mb-8">
               Compilamos as principais dúvidas para ajudar você a entender melhor como funciona nosso atendimento e as particularidades do Direito Público.
             </p>

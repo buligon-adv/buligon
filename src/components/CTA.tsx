@@ -19,7 +19,7 @@ export default function CTA({
         <div className="inline-block p-2 bg-bronze/10 rounded-full mb-6">
           <div className="w-2 h-2 bg-bronze rounded-full animate-ping" />
         </div>
-        <h2 className="text-4xl sm:text-6xl font-serif text-navy mb-8 leading-tight">
+        <h2 className="text-4xl sm:text-6xl font-sans font-semibold text-navy mb-8 leading-tight">
           Pronto para <span className="italic text-bronze">solucionar</span> sua <br />demanda jurídica?
         </h2>
         <p className="text-gray-500 text-lg mb-12 max-w-2xl mx-auto leading-relaxed">

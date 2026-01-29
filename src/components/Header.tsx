@@ -42,7 +42,7 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-navy hover:text-bronze font-bold text-[10px] uppercase tracking-[0.2em] transition-all relative group"
+                className="text-navy hover:text-bronze font-semibold text-[10px] uppercase tracking-[0.2em] transition-all relative group"
               >
                 {item.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-px bg-bronze transition-all group-hover:w-full" />
@@ -56,7 +56,7 @@ export default function Header() {
               href={siteConfig.social.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3 bg-navy text-white text-[10px] uppercase tracking-widest font-bold hover:bg-bronze transition-all shadow-lg active:scale-95"
+              className="px-8 py-3 bg-navy text-white text-[10px] uppercase tracking-widest font-semibold hover:bg-bronze transition-all shadow-lg active:scale-95"
             >
               Consultoria
             </a>
