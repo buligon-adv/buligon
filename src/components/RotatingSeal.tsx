@@ -2,9 +2,15 @@
 
 export default function RotatingSeal() {
   return (
-    <div className="relative w-32 h-32 md:w-48 md:h-48 flex items-center justify-center p-2">
+    <div className="relative w-32 h-32 md:w-48 md:h-48 flex items-center justify-center p-2 group">
+      {/* Efeito de Vidro (Glassmorphism) no Fundo */}
+      <div className="absolute inset-4 bg-white/[0.03] backdrop-blur-[6px] rounded-full border border-white/10 shadow-[inner_0_1px_1px_rgba(255,255,255,0.1)] -z-10" />
+      
+      {/* Sombra de destaque externa */}
+      <div className="absolute inset-6 bg-black/20 rounded-full blur-2xl -z-20" />
+      
       {/* Container do SVG Rotativo - Invertido (lado oposto) */}
-      <div className="absolute inset-0 animate-[spin_20s_linear_infinite_reverse]">
+      <div className="absolute inset-0 animate-[spin_20s_linear_infinite_reverse] drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">
         <svg viewBox="0 0 100 100" className="w-full h-full overflow-visible">
           <defs>
             <path
