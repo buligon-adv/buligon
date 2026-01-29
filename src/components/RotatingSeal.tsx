@@ -18,9 +18,9 @@ export default function RotatingSeal() {
               d="M 50, 50 m -41, 0 a 41,41 0 1,1 82,0 a 41,41 0 1,1 -82,0"
             />
           </defs>
-          <text className="text-[6.5px] md:text-[6px] uppercase tracking-[0.25em] fill-bronze font-sans font-bold">
+          <text className="text-[6px] md:text-[5.5px] uppercase tracking-[0.45em] fill-bronze font-sans font-bold">
             <textPath xlinkHref="#circlePath" startOffset="0%">
-              • BULIGON ADVOGADOS • 20 ANOS DE •
+              • BULIGON ADVOGADOS • 20 ANOS DE ATUAÇÃO •
             </textPath>
           </text>
         </svg>
