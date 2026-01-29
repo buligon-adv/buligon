@@ -20,7 +20,7 @@ export default function RotatingSeal() {
           </defs>
           <text className="text-[6.5px] md:text-[6px] uppercase tracking-[0.25em] fill-bronze font-sans font-bold">
             <textPath xlinkHref="#circlePath" startOffset="0%">
-              • BULIGON ADVOGADOS • 20 ANOS DE ATUAÇÃO •
+              • BULIGON ADVOGADOS • 20 ANOS DE •
             </textPath>
           </text>
         </svg>
@@ -34,9 +34,7 @@ export default function RotatingSeal() {
         </div>
       </div>
       
-      {/* 5. Linhas Decorativas - Equidistantes entre o centro e o texto */}
-      <div className="absolute inset-[30%] border border-bronze/20 rounded-full" />
-      <div className="absolute inset-4 border border-white/5 rounded-full" />
+      {/* 5. Linhas Decorativas - Removidas a pedido do usuário */}
       
       {/* 6. Brilho de fundo */}
       <div className="absolute inset-12 bg-bronze/5 rounded-full blur-2xl animate-pulse -z-20" />
