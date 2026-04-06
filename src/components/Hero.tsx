@@ -10,6 +10,7 @@ interface HeroProps {
     href: string;
   };
   backgroundImage?: string;
+  size?: 'full' | 'compact';
 }
 
 export default function Hero({
@@ -18,10 +19,13 @@ export default function Hero({
   cta,
   secondaryCta,
   backgroundImage,
+  size = 'compact',
 }: HeroProps) {
+  const heightClass = size === 'full' ? 'min-h-[90vh]' : 'min-h-[50vh]';
+  
   return (
     <section
-      className={`relative min-h-[90vh] flex items-center overflow-hidden ${!backgroundImage ? 'bg-navy' : ''}`}
+      className={`relative ${heightClass} flex items-center overflow-hidden ${!backgroundImage ? 'bg-navy' : ''}`}
       style={
         backgroundImage
           ? {
@@ -76,10 +80,12 @@ export default function Hero({
       </div>
 
       {/* Scroll Down Indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/50">
-        <span className="text-[10px] uppercase tracking-[0.3em] font-medium">Descobrir</span>
-        <div className="w-px h-12 bg-gradient-to-b from-bronze to-transparent" />
-      </div>
+      {size === 'full' && (
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/50">
+          <span className="text-[10px] uppercase tracking-[0.3em] font-medium">Descobrir</span>
+          <div className="w-px h-12 bg-gradient-to-b from-bronze to-transparent" />
+        </div>
+      )}
 
       {/* Animated subtle shapes */}
       <div className="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-bronze/10 blur-[100px] pointer-events-none" />

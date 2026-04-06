@@ -53,7 +53,7 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="p-6 bg-green-50 rounded-lg border border-green-200 text-center">
+      <div className="p-6 bg-green-50 border border-green-200 text-center">
         <p className="text-green-800 font-semibold">Obrigado por sua mensagem!</p>
         <p className="text-green-700 text-sm mt-2">
           Em breve entraremos em contato com você.
@@ -75,7 +75,7 @@ export default function ContactForm() {
             type="text"
             value={formData.name}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent outline-none transition-all"
+            className="w-full px-4 py-2 border border-gray-300 focus:ring-2 focus:ring-navy focus:border-transparent outline-none transition-all"
             style={{ '--tw-ring-color': 'var(--color-navy)' } as any}
             required
           />
@@ -91,7 +91,7 @@ export default function ContactForm() {
             type="email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent outline-none transition-all"
+            className="w-full px-4 py-2 border border-gray-300 focus:ring-2 focus:ring-navy focus:border-transparent outline-none transition-all"
             style={{ '--tw-ring-color': 'var(--color-navy)' } as any}
             required
           />
@@ -108,7 +108,7 @@ export default function ContactForm() {
           type="tel"
           value={formData.phone}
           onChange={handleChange}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent outline-none transition-all"
+          className="w-full px-4 py-2 border border-gray-300 focus:ring-2 focus:ring-navy focus:border-transparent outline-none transition-all"
           style={{ '--tw-ring-color': 'var(--color-navy)' } as any}
           required
         />
@@ -124,7 +124,7 @@ export default function ContactForm() {
           rows={5}
           value={formData.message}
           onChange={handleChange}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent outline-none transition-all resize-none"
+          className="w-full px-4 py-2 border border-gray-300 focus:ring-2 focus:ring-navy focus:border-transparent outline-none transition-all resize-none"
           style={{ '--tw-ring-color': 'var(--color-navy)' } as any}
           required
         />
@@ -133,7 +133,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isLoading}
-        className="w-full py-3 rounded-lg font-semibold text-white transition-all hover:shadow-lg disabled:opacity-50"
+        className="w-full py-3 font-semibold text-white transition-all hover:shadow-lg disabled:opacity-50"
         style={{ backgroundColor: 'var(--color-navy)' }}
       >
         {isLoading ? 'Enviando...' : 'Enviar mensagem'}

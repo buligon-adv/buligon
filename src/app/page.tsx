@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 import Hero from '@/components/Hero';
 import HeroSlider from '@/components/HeroSlider';
 import Section from '@/components/Section';
@@ -48,8 +49,8 @@ export default function Home() {
       <HeroSlider
         slides={[
           {
-            title: "Atuação Estratégica em Direito Eleitoral",
-            subtitle: "Consultoria e contencioso especializado para candidatos, partidos e coligações com foco em resultados e segurança jurídica em todas as fases do pleito.",
+            title: "Soluções Jurídicas",
+            subtitle: "Experiência, expertise e compromisso que transformam desafios jurídicos em conquistas sólidas.",
             backgroundImage: "/Banner%2001%20Buligon.jpg",
             cta: {
               label: 'Falar com Especialista',
@@ -61,21 +62,21 @@ export default function Home() {
             }
           },
           {
-            title: "Excelência Jurídica em Curitiba",
-            subtitle: "Nosso escritório combina uma infraestrutura tecnológica de ponta com um ambiente clássico e privativo, projetado para oferecer o máximo conforto e sigilo em seus atendimentos.",
+            title: "Direito Eleitoral",
+            subtitle: "Campanhas eleitorais exigem estratégia jurídica e decisão rápida. Do planejamento ao pós-eleição: segurança em cada fase.",
             backgroundImage: "/Banner%2002%20Buligon.jpg",
             cta: {
-              label: 'Agendar Visita',
-              href: '/sobre',
+              label: 'Falar com Especialista',
+              href: siteConfig.social.whatsapp,
             },
             secondaryCta: {
-              label: 'Ver Localização',
-              href: '#faq',
+              label: 'Conhecer Atuação',
+              href: '/area/direito-eleitoral',
             }
           },
           {
-            title: "Excelência Jurídica em Cada Detalhe",
-            subtitle: "Consultoria estratégica especializada em Direito Público e Administrativo. Transformamos complexidade em segurança jurídica para gestores e empresas.",
+            title: "Técnica que Sustenta",
+            subtitle: "Estratégia que diferencia. Em cenários críticos, não recuamos — estruturamos. Onde o comum termina, começa o nosso trabalho.",
             cta: {
               label: 'Consultoria Especializada',
               href: siteConfig.social.whatsapp,
@@ -109,7 +110,7 @@ export default function Home() {
             <div className="mt-12 grid grid-cols-2 gap-8 border-t border-gray-100 pt-12">
               <div className="animate-fadeInUp delay-100">
                 <span className="block text-4xl font-sans font-semibold text-bronze mb-2">
-                  <StatCounter end={15} suffix="+" />
+                  <StatCounter end={20} suffix="+" />
                 </span>
                 <span className="text-[10px] uppercase tracking-widest font-bold text-navy-light opacity-60">Anos de Experiência</span>
               </div>
@@ -123,14 +124,15 @@ export default function Home() {
           </div>
           
           <div className="relative order-1 lg:order-2 px-4 lg:px-0 animate-fadeInUp delay-300">
-            <div className="aspect-[4/5] bg-navy-light rounded-sm overflow-hidden shadow-2xl group flex items-center justify-center relative">
-              <div className="absolute inset-0 bg-bronze/5 group-hover:bg-transparent transition-colors duration-700 z-10" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--color-navy-light)_0%,_#0C1F40_100%)] opacity-80" />
-              <div className="relative z-20 text-center p-12">
-                <div className="w-20 h-px bg-bronze mx-auto mb-8" />
-                <h3 className="text-white font-sans font-semibold italic text-3xl mb-4">Buligon Advogados</h3>
-                <p className="text-bronze font-sans uppercase tracking-[0.2em] text-[10px] font-bold">Consultoria Jurídica de Alto Padrão</p>
-              </div>
+            <div className="aspect-[4/5] rounded-sm overflow-hidden shadow-2xl group relative">
+              <Image
+                src="/Estrutura Buligon 01.jpg"
+                alt="Escritório Buligon Advogados"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent" />
             </div>
             {/* Floating text for larger screens */}
             <div className="absolute -bottom-8 -right-8 bg-white p-8 border-l border-b border-gray-100 hidden sm:block shadow-[20px_20px_60px_-15px_rgba(0,0,0,0.1)] max-w-xs z-30">

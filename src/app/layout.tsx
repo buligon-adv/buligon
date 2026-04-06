@@ -73,6 +73,7 @@ export default function RootLayout({
     <html lang="pt-BR" className="scroll-smooth" suppressHydrationWarning>
       <body
         className={`${barlowCondensed.variable} ${inter.variable} ${playfair.variable} ${geistMono.variable} ${greatVibes.variable} antialiased font-sans bg-white text-navy`}
+        suppressHydrationWarning
       >
         <Header />
         <main className="min-h-screen">

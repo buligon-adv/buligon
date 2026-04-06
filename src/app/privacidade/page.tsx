@@ -122,7 +122,7 @@ export default function PrivacidadePage() {
             </a>
             <br />
             <strong>Telefone:</strong>{' '}
-            <a href={`tel:${siteConfig.phone}`} className="text-bronze hover:underline">
+            <a href="tel:+554130154161" className="text-bronze hover:underline">
               {siteConfig.phone}
             </a>
           </p>
