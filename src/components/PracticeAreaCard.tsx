@@ -29,7 +29,7 @@ export default function PracticeAreaCard({
         {title}
       </h3>
       
-      <p className="text-gray-500 group-hover:text-gray-300 transition-colors duration-500 mb-8 line-clamp-3 text-sm leading-relaxed">
+      <p className="text-gray-500 group-hover:text-gray-300 transition-colors duration-500 mb-8 line-clamp-3 text-[16px] sm:text-sm leading-relaxed">
         {description}
       </p>
 

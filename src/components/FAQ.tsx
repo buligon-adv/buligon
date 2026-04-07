@@ -53,7 +53,7 @@ export default function FAQ({
             </button>
             {openIndex === index && (
               <div className="px-6 py-4 bg-gray-50 border-t border-gray-200">
-                <p className="text-gray-700 leading-relaxed">{item.answer}</p>
+                <p className="text-gray-700 leading-relaxed text-[16px] sm:text-base">{item.answer}</p>
               </div>
             )}
           </div>
