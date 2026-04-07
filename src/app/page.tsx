@@ -198,7 +198,7 @@ export default function Home() {
               <h3 className="text-[22px] sm:text-xl font-sans font-semibold text-navy mb-5 relative z-10 leading-tight">
                 {item.title}
               </h3>
-              <p className="text-gray-600 text-[16px] sm:text-sm leading-[1.6] relative z-10 font-normal">
+              <p className="text-gray-600 text-[18px] sm:text-sm leading-[1.6] relative z-10 font-normal">
                 {item.desc}
               </p>
             </div>
@@ -246,7 +246,7 @@ export default function Home() {
                 <h3 className="text-white font-sans font-semibold text-[22px] sm:text-lg mb-5 group-hover:text-bronze transition-colors leading-tight">
                   {item.title}
                 </h3>
-                <p className="text-gray-400 text-[16px] sm:text-sm leading-[1.6] font-light">
+                <p className="text-gray-400 text-[18px] sm:text-sm leading-[1.6] font-light">
                   {item.desc}
                 </p>
                 <div className="mt-8 w-8 h-px bg-bronze/20 group-hover:w-full transition-all duration-700" />
