@@ -176,18 +176,18 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 lg:gap-24">
           {[
             {
-              title: "Atendimento Tailored",
-              desc: "Soluções personalizadas desenhadas sob medida para cada cliente e situação específica.",
+              title: "Atendimento Próximo",
+              desc: "Relação direta com os sócios e acompanhamento jurídico personalizado em cada etapa do seu caso.",
               icon: "01"
             },
             {
               title: "Visão Estratégica",
-              desc: "Não apenas resolvemos problemas, antecipamos cenários para evitar litígios futuros.",
+              desc: "Análise profunda e multidisciplinar voltada para a entrega de resultados sólidos e seguros.",
               icon: "02"
             },
             {
-              title: "Foco em Resultados",
-              desc: "Comprometimento total com a entrega de resultados que impactam positivamente a vida do cliente.",
+              title: "Atuação Preventiva",
+              desc: "Antecipamos riscos e estruturamos o planejamento necessário para evitar litígios desnecessários.",
               icon: "03"
             }
           ].map((item, idx) => (
@@ -195,8 +195,8 @@ export default function Home() {
               <span className="text-8xl font-sans font-semibold text-gray-50 group-hover:text-bronze/10 transition-colors duration-500 absolute -translate-y-12 -translate-x-4 pointer-events-none">
                 {item.icon}
               </span>
-              <h3 className="text-xl font-sans font-semibold text-navy mb-4 relative z-10">{item.title}</h3>
-              <p className="text-gray-500 leading-relaxed text-sm relative z-10">{item.desc}</p>
+              <h3 className="text-xl sm:text-xl font-sans font-semibold text-navy mb-4 relative z-10">{item.title}</h3>
+              <p className="text-gray-600 text-base sm:text-sm leading-relaxed relative z-10">{item.desc}</p>
             </div>
           ))}
         </div>
