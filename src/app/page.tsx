@@ -239,10 +239,10 @@ export default function Home() {
                 <span className="absolute top-0 left-0 text-[10px] uppercase tracking-widest font-bold text-bronze py-2 px-1">
                   {item.number}
                 </span>
-                <h3 className="text-white font-sans font-semibold text-lg mb-4 group-hover:text-bronze transition-colors">
+                <h3 className="text-xl sm:text-white font-sans font-semibold text-white mb-4 group-hover:text-bronze transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-gray-400 text-sm leading-relaxed font-light">
+                <p className="text-gray-400 text-base sm:text-sm leading-relaxed font-light">
                   {item.desc}
                 </p>
                 <div className="mt-8 w-8 h-px bg-bronze/20 group-hover:w-full transition-all duration-700" />
