@@ -191,12 +191,16 @@ export default function Home() {
               icon: "03"
             }
           ].map((item, idx) => (
-            <div key={idx} className="flex flex-col group relative">
+            <div key={idx} className="flex flex-col group relative mb-12 last:mb-0 sm:mb-0">
               <span className="text-8xl font-sans font-semibold text-gray-50 group-hover:text-bronze/10 transition-colors duration-500 absolute -translate-y-12 -translate-x-4 pointer-events-none">
                 {item.icon}
               </span>
-              <h3 className="text-xl sm:text-xl font-sans font-semibold text-navy mb-4 relative z-10">{item.title}</h3>
-              <p className="text-gray-600 text-base sm:text-sm leading-relaxed relative z-10">{item.desc}</p>
+              <h3 className="text-[22px] sm:text-xl font-sans font-semibold text-navy mb-5 relative z-10 leading-tight">
+                {item.title}
+              </h3>
+              <p className="text-gray-600 text-[16px] sm:text-sm leading-[1.6] relative z-10 font-normal">
+                {item.desc}
+              </p>
             </div>
           ))}
         </div>
@@ -235,14 +239,14 @@ export default function Home() {
                 number: "03"
               }
             ].map((item, idx) => (
-              <div key={idx} className="group relative pt-10 border-t border-white/10 hover:border-bronze/50 transition-colors duration-500">
+              <div key={idx} className="group relative pt-12 pb-4 sm:pt-10 border-t border-white/10 hover:border-bronze/50 transition-colors duration-500">
                 <span className="absolute top-0 left-0 text-[10px] uppercase tracking-widest font-bold text-bronze py-2 px-1">
                   {item.number}
                 </span>
-                <h3 className="text-xl sm:text-white font-sans font-semibold text-white mb-4 group-hover:text-bronze transition-colors">
+                <h3 className="text-white font-sans font-semibold text-[22px] sm:text-lg mb-5 group-hover:text-bronze transition-colors leading-tight">
                   {item.title}
                 </h3>
-                <p className="text-gray-400 text-base sm:text-sm leading-relaxed font-light">
+                <p className="text-gray-400 text-[16px] sm:text-sm leading-[1.6] font-light">
                   {item.desc}
                 </p>
                 <div className="mt-8 w-8 h-px bg-bronze/20 group-hover:w-full transition-all duration-700" />
