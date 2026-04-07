@@ -106,17 +106,20 @@ export default function Footer() {
           <p className="text-gray-500 text-[10px] uppercase tracking-widest">
             © {currentYear} {siteConfig.name}. Todos os direitos reservados.
           </p>
-          <div className="flex items-center gap-10">
+          <div className="flex items-center gap-6">
              <span className="text-[9px] uppercase tracking-[0.2em] font-medium text-gray-600">OAB/PR</span>
-             <a href="https://updo.com.br" target="_blank" rel="noopener noreferrer" title="UPDO Estratégia Digital" className="opacity-40 hover:opacity-100 transition-opacity">
-               <Image 
-                 src="/Logo UPDO Branca.svg" 
-                 alt="By UPDO" 
-                 width={90} 
-                 height={26} 
-                 className="h-5 w-auto"
-               />
-             </a>
+             <div className="flex items-center gap-3">
+               <span className="text-[9px] uppercase tracking-[0.2em] font-medium text-gray-500">Desenvolvido por</span>
+               <a href="https://updo.com.br" target="_blank" rel="noopener noreferrer" title="UPDO Estratégia Digital" className="transition-transform hover:scale-105">
+                 <Image 
+                   src="/Logo UPDO Branca.svg" 
+                   alt="UPDO" 
+                   width={90} 
+                   height={26} 
+                   className="h-5 w-auto"
+                 />
+               </a>
+             </div>
           </div>
         </div>
       </div>
