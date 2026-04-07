@@ -76,7 +76,7 @@ export default function HeroSlider({ slides }: HeroSliderProps) {
       <div className="container mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
           <div className={`transition-all duration-700 ${isFading ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'}`}>
             <div className="inline-block h-1 w-20 bg-bronze mb-8 animate-pulse" />
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-sans font-semibold text-white mb-8 leading-[1.1] tracking-tight max-w-[12ch] sm:max-w-[20ch]">
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-sans font-semibold text-white mb-8 leading-[1.1] tracking-tight max-w-[12ch] sm:max-w-[20ch]">
               {slide.title.split(' ').map((word, i) => (
                 <span 
                   key={i} 
@@ -86,13 +86,13 @@ export default function HeroSlider({ slides }: HeroSliderProps) {
                 </span>
               ))}
             </h1>
-            <p className="text-xl sm:text-2xl text-gray-300 mb-12 leading-relaxed max-w-2xl font-light">
+            <p className="text-lg sm:text-2xl text-gray-300 mb-12 leading-relaxed max-w-2xl font-light">
               {slide.subtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-6 relative">
-              {/* Selo posicionado ainda mais à esquerda para máxima proximidade com o CTA principal */}
-              <div className="absolute -top-16 left-0 sm:left-auto sm:right-[400px] lg:right-[520px] lg:-top-20 z-50 pointer-events-none sm:pointer-events-auto">
-                <div className="scale-[0.55] sm:scale-75 lg:scale-110 hover:scale-125 transition-transform duration-500 origin-bottom-left sm:origin-bottom-right">
+              {/* Selo rotativo - Otimizado para mobile (fixo à direita no topo do CTA ou flutuante) */}
+              <div className="absolute -top-32 right-0 sm:left-auto sm:right-[400px] lg:right-[520px] lg:-top-20 z-50 pointer-events-none sm:pointer-events-auto">
+                <div className="scale-75 sm:scale-75 lg:scale-110 hover:scale-125 transition-transform duration-500 origin-bottom-right">
                   <RotatingSeal />
                 </div>
               </div>
