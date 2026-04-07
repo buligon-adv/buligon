@@ -139,8 +139,8 @@ export default function ContactForm() {
         {isLoading ? 'Enviando...' : 'Enviar mensagem'}
       </button>
 
-      <p className="text-sm text-gray-600 text-center">
-        Responderemos sua mensagem em até 24 horas.
+      <p className="text-sm text-gray-400 text-center">
+        Ao enviar, você concorda com nossa política de privacidade.
       </p>
     </form>
   );

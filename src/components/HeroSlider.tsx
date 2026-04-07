@@ -74,14 +74,6 @@ export default function HeroSlider({ slides }: HeroSliderProps) {
       <div className="absolute left-10 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-bronze/30 to-transparent hidden lg:block" />
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
-        {/* Selo flutuante no canto superior direito - Desktop e Mobile */}
-        <div className="absolute -top-16 lg:-top-10 right-4 lg:right-12 z-50">
-          <div className="scale-75 lg:scale-90 hover:scale-100 transition-transform duration-500 origin-top-right">
-            <RotatingSeal />
-          </div>
-        </div>
-
-        <div className="max-w-5xl transition-all duration-700 transform">
           <div className={`transition-all duration-700 ${isFading ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'}`}>
             <div className="inline-block h-1 w-20 bg-bronze mb-8 animate-pulse" />
             <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-sans font-semibold text-white mb-8 leading-[1.1] tracking-tight max-w-[12ch] sm:max-w-[20ch]">
@@ -97,11 +89,18 @@ export default function HeroSlider({ slides }: HeroSliderProps) {
             <p className="text-xl sm:text-2xl text-gray-300 mb-12 leading-relaxed max-w-2xl font-light">
               {slide.subtitle}
             </p>
-            <div className="flex flex-col sm:flex-row gap-6">
+            <div className="flex flex-col sm:flex-row gap-6 relative">
+              {/* Selo posicionado ainda mais à esquerda para máxima proximidade com o CTA principal */}
+              <div className="absolute -top-16 left-0 sm:left-auto sm:right-[400px] lg:right-[520px] lg:-top-20 z-50 pointer-events-none sm:pointer-events-auto">
+                <div className="scale-[0.55] sm:scale-75 lg:scale-110 hover:scale-125 transition-transform duration-500 origin-bottom-left sm:origin-bottom-right">
+                  <RotatingSeal />
+                </div>
+              </div>
+
               {slide.cta && (
                 <a
                   href={slide.cta.href}
-                  className="px-10 py-4 rounded-sm font-semibold text-white transition-all bg-bronze hover:bg-bronze-light hover:scale-105 active:scale-95 shadow-xl text-center uppercase tracking-widest text-sm"
+                  className="px-10 py-4 rounded-none font-bold text-white transition-all bg-bronze hover:bg-bronze-light shadow-xl text-center uppercase tracking-widest text-xs"
                 >
                   {slide.cta.label}
                 </a>
@@ -109,7 +108,7 @@ export default function HeroSlider({ slides }: HeroSliderProps) {
               {slide.secondaryCta && (
                 <a
                   href={slide.secondaryCta.href}
-                  className="px-10 py-4 rounded-sm font-semibold text-white border border-white/30 backdrop-blur-sm transition-all hover:bg-white hover:text-navy hover:border-white text-center uppercase tracking-widest text-sm"
+                  className="px-10 py-4 rounded-none font-bold text-white border border-white/30 backdrop-blur-sm transition-all hover:bg-white hover:text-navy hover:border-white text-center uppercase tracking-widest text-xs"
                 >
                   {slide.secondaryCta.label}
                 </a>
@@ -117,7 +116,6 @@ export default function HeroSlider({ slides }: HeroSliderProps) {
             </div>
           </div>
         </div>
-      </div>
 
       {/* Slider Controls - Centralized Risks Only */}
       <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex items-center z-20">

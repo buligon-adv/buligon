@@ -4,7 +4,6 @@ import Hero from '@/components/Hero';
 import HeroSlider from '@/components/HeroSlider';
 import Section from '@/components/Section';
 import PracticeAreasGrid from '@/components/PracticeAreasGrid';
-import Testimonials from '@/components/Testimonials';
 import FAQ from '@/components/FAQ';
 import CTA from '@/components/CTA';
 import StatCounter from '@/components/StatCounter';
@@ -21,7 +20,7 @@ const faqItems = [
   {
     question: 'Como solicitar uma consulta jurídica?',
     answer:
-      'Você pode entrar em contato através do WhatsApp, telefone ou formulário de contato no site. Respondemos todas as solicitações em até 24 horas e agendamos uma consulta conforme sua disponibilidade.',
+      'Você pode entrar em contato através do WhatsApp, telefone ou formulário de contato no site. Agendamos uma consulta conforme sua disponibilidade para entender o seu caso em profundidade.',
   },
   {
     question: 'Qual é a primeira etapa de um atendimento?',
@@ -41,7 +40,7 @@ const faqItems = [
 ];
 
 export default function Home() {
-  const featuredAreas = getFeaturedAreas().slice(0, 6);
+  const featuredAreas = getFeaturedAreas().slice(0, 4);
 
   return (
     <div className="overflow-hidden">
@@ -64,7 +63,7 @@ export default function Home() {
           {
             title: "Direito Eleitoral",
             subtitle: "Campanhas eleitorais exigem estratégia jurídica e decisão rápida. Do planejamento ao pós-eleição: segurança em cada fase.",
-            backgroundImage: "/Banner%2002%20Buligon.jpg",
+            backgroundImage: "/Banner%2006%20Buligon%20Urna%20Eletrônica.jpg",
             cta: {
               label: 'Falar com Especialista',
               href: siteConfig.social.whatsapp,
@@ -77,6 +76,7 @@ export default function Home() {
           {
             title: "Técnica que Sustenta",
             subtitle: "Estratégia que diferencia. Em cenários críticos, não recuamos — estruturamos. Onde o comum termina, começa o nosso trabalho.",
+            backgroundImage: "/Banner%2003%20Buligon.jpg",
             cta: {
               label: 'Consultoria Especializada',
               href: siteConfig.social.whatsapp,
@@ -161,7 +161,7 @@ export default function Home() {
           </a>
         </div>
         <div className="animate-fadeInUp delay-200">
-          <PracticeAreasGrid areas={featuredAreas} columns={3} />
+          <PracticeAreasGrid areas={featuredAreas} columns={4} />
         </div>
       </Section>
 
@@ -202,11 +202,53 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Testimonials */}
-      <div className="bg-navy py-12 sm:py-20 relative">
+      {/* Por que escolher o Buligon Advogados? */}
+      <div className="bg-navy py-12 sm:py-24 relative overflow-hidden">
+        {/* Elemento decorativo de fundo */}
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-bronze/5 -skew-x-12 translate-x-1/2" />
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 pointer-events-none" />
-        <Section backgroundColor="bg-transparent" className="py-0 sm:py-0">
-          <Testimonials />
+        
+        <Section backgroundColor="bg-transparent" className="py-0 sm:py-0 relative z-10">
+          <div className="max-w-4xl mb-20">
+            <span className="text-bronze uppercase tracking-[0.3em] text-[10px] font-bold mb-4 block animate-fadeIn">Excelência Institucional</span>
+            <h2 className="text-3xl sm:text-5xl font-sans font-semibold text-white leading-tight">
+              Diferenciais que definem nossa <br />
+              <span className="text-bronze italic">atuação estratégica</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
+            {[
+              {
+                title: "Tradição e Modernidade",
+                desc: "Equilíbrio entre a experiência de décadas com a agilidade das novas ferramentas jurídicas.",
+                number: "01"
+              },
+              {
+                title: "Consultoria Preventiva",
+                desc: "Análise antecipada de riscos para evitar litígios e garantir a continuidade do seu projeto.",
+                number: "02"
+              },
+              {
+                title: "Alinhamento de Valor",
+                desc: "Entendimento profundo das necessidades do cliente para entregar soluções reais e tangíveis.",
+                number: "03"
+              }
+            ].map((item, idx) => (
+              <div key={idx} className="group relative pt-10 border-t border-white/10 hover:border-bronze/50 transition-colors duration-500">
+                <span className="absolute top-0 left-0 text-[10px] uppercase tracking-widest font-bold text-bronze py-2 px-1">
+                  {item.number}
+                </span>
+                <h3 className="text-white font-sans font-semibold text-lg mb-4 group-hover:text-bronze transition-colors">
+                  {item.title}
+                </h3>
+                <p className="text-gray-400 text-sm leading-relaxed font-light">
+                  {item.desc}
+                </p>
+                <div className="mt-8 w-8 h-px bg-bronze/20 group-hover:w-full transition-all duration-700" />
+              </div>
+            ))}
+          </div>
         </Section>
       </div>
 

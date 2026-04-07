@@ -15,6 +15,7 @@ export default function PrivacidadePage() {
       <Hero
         title="Política de Privacidade"
         subtitle="Seu direito à privacidade é nossa prioridade"
+        backgroundImage="/Banner%2003%20Buligon.jpg"
       />
 
       <Section>

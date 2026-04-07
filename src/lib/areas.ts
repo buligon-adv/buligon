@@ -88,26 +88,6 @@ Nossa atuação vai desde a impugnação de editais, análise prévia da documen
     category: 'empresas'
   },
   {
-    id: 'emp-tribunais',
-    slug: 'tribunais-contas-empresas',
-    title: 'Tribunais de Contas',
-    shortDescription: 'Sólida experiência na atuação junto aos Tribunais de Contas com foco na proteção do negócio e credibilidade da empresa.',
-    fullDescription: `Nossa equipe tem sólida experiência na atuação junto aos Tribunais de Contas Municipais, Estaduais e da União, prestando todo suporte jurídico em processos de representação, denúncias, tomada de contas, e demais processos de fiscalização.
-
-Com atuação estratégica e visão técnica, conduzimos cada caso com precisão, antecipando riscos, mitigando responsabilizações indevidas, impactos financeiros, orientada à proteção do negócio e credibilidade da empresa perante os órgãos de controle.`,
-    topics: [
-      'Processos de representação',
-      'Defesa em denúncias',
-      'Tomada de contas',
-      'Processos de fiscalização',
-      'Mitigação de responsabilizações',
-      'Proteção da credibilidade empresarial'
-    ],
-    cta: 'Falar sobre sua questão no Tribunal de Contas',
-    featured: false,
-    category: 'empresas'
-  },
-  {
     id: 'emp-improbidade',
     slug: 'improbidade-empresas',
     title: 'Ações Civis Públicas / Improbidade Administrativa',

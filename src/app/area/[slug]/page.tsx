@@ -51,17 +51,30 @@ export default async function AreaPage({ params }: PageProps) {
   return (
     <>
       {/* HERO - Foco em Benefício */}
-      <section className="relative min-h-[50vh] flex items-center bg-navy overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-5" />
+      <section className="relative min-h-[60vh] lg:min-h-[65vh] flex items-center bg-gray-900 overflow-hidden pt-24 pb-16 lg:pt-32 lg:pb-20">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/60 to-transparent z-10" />
+          <div 
+            className="absolute inset-0 bg-cover bg-center opacity-60"
+            style={{ backgroundImage: `url('/Banner%2005%20Buligon.jpg')` }}
+          />
+        </div>
         <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-white/[0.03] to-transparent pointer-events-none" />
-        <div className="absolute left-10 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-bronze/30 to-transparent hidden lg:block" />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-12 py-16 lg:py-20 relative z-10">
+        <div className="absolute left-6 lg:left-10 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-bronze/30 to-transparent hidden lg:block" />
+        <div className="container relative z-20">
           <div className="max-w-4xl">
             <span className="inline-block text-bronze uppercase tracking-[0.25em] text-xs font-semibold mb-6">
               {area.category === 'empresas' ? 'Para Empresas' : area.category === 'agentes-publicos' ? 'Agentes Públicos' : 'Pessoa Física'}
             </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light text-white mb-6 leading-tight">
-              {area.title}
+            <h1 className="text-white mb-6">
+              {area.title.split(' ').map((word, i) => (
+                <span 
+                  key={i} 
+                  className={`inline-block mr-[0.25em] last:mr-0 ${i % 2 === 1 ? 'text-bronze italic' : ''}`}
+                >
+                  {word}
+                </span>
+              ))}
             </h1>
             <p className="text-xl lg:text-2xl text-white/80 font-light leading-relaxed max-w-3xl mb-10">
               {benefitHeadline}
@@ -253,9 +266,9 @@ export default async function AreaPage({ params }: PageProps) {
               <a
                 key={otherArea.id}
                 href={`/area/${otherArea.slug}`}
-                className="group p-5 border border-gray-200 hover:border-bronze bg-white text-center transition-all"
+                className="group p-5 border border-gray-200 hover:border-bronze bg-white flex items-center justify-center text-center transition-all aspect-square sm:aspect-auto sm:min-h-[120px]"
               >
-                <span className="text-sm font-medium text-navy group-hover:text-bronze transition-colors">
+                <span className="text-sm font-medium text-navy group-hover:text-bronze transition-colors leading-snug">
                   {otherArea.title}
                 </span>
               </a>

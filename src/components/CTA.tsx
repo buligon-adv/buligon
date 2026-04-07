@@ -1,4 +1,5 @@
 import { siteConfig } from "@/lib/site";
+import Link from "next/link";
 
 interface CTAProps {
   title?: string;
@@ -30,16 +31,16 @@ export default function CTA({
             href={ctaHref}
             target={ctaHref.startsWith('http') ? '_blank' : undefined}
             rel={ctaHref.startsWith('http') ? 'noopener noreferrer' : undefined}
-            className="px-12 py-4 bg-navy text-white font-bold uppercase tracking-widest text-[10px] hover:bg-bronze transition-all shadow-xl hover:-translate-y-1"
+            className="px-12 py-5 bg-navy text-white font-bold uppercase tracking-[0.2em] text-[11px] lg:text-xs hover:bg-bronze transition-all shadow-2xl rounded-none"
           >
             {ctaText}
           </a>
-          <a
+          <Link
             href="/contato"
-            className="text-navy text-[10px] uppercase tracking-widest font-bold border-b border-navy/20 hover:border-bronze transition-all pb-1"
+            className="text-navy text-[11px] lg:text-xs uppercase tracking-[0.2em] font-bold border-b-2 border-bronze hover:border-navy transition-all pb-1 ml-0 sm:ml-4"
           >
             Outras formas de contato
-          </a>
+          </Link>
         </div>
       </div>
       

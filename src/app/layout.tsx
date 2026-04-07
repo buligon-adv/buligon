@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import ScrollToTop from "@/components/ScrollToTop";
 import { siteConfig } from "@/lib/site";
 
 const inter = Inter({
@@ -62,6 +63,11 @@ export const metadata: Metadata = {
     title: `${siteConfig.name} - Consultoria Jurídica Especializada`,
     description: siteConfig.description,
   },
+  icons: {
+    icon: [
+      { url: '/Logo Buligon Favicon.png', sizes: 'any' },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -75,6 +81,7 @@ export default function RootLayout({
         className={`${barlowCondensed.variable} ${inter.variable} ${playfair.variable} ${geistMono.variable} ${greatVibes.variable} antialiased font-sans bg-white text-navy`}
         suppressHydrationWarning
       >
+        <ScrollToTop />
         <Header />
         <main className="min-h-screen">
           {children}

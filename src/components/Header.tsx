@@ -25,7 +25,7 @@ export default function Header() {
           <Link href="/" className="flex items-center">
             {/* Logo Desktop */}
             <Image
-              src="/Logo Buligon Header Dektop.png"
+              src="/Logo Buligon Transparente Header.png"
               alt="Buligon Advogados"
               width={250}
               height={70}
@@ -35,7 +35,7 @@ export default function Header() {
             />
             {/* Logo Mobile */}
             <Image
-              src="/Logo Buligon Header Mobile.png"
+              src="/Logo Buligon Transparente Header.png"
               alt="Buligon Advogados"
               width={200}
               height={55}
@@ -51,7 +51,7 @@ export default function Header() {
               <div key={item.href} className="relative group">
                 <Link
                   href={item.href}
-                  className="text-navy hover:text-bronze font-semibold text-[10px] uppercase tracking-[0.2em] transition-all relative flex items-center gap-1"
+                  className="text-navy hover:text-bronze font-semibold text-[13px] uppercase tracking-[0.2em] transition-all relative flex items-center gap-1"
                 >
                   {item.label}
                   {item.submenu && (
@@ -62,13 +62,14 @@ export default function Header() {
                   <span className="absolute -bottom-1 left-0 w-0 h-px bg-bronze transition-all group-hover:w-full" />
                 </Link>
                 {item.submenu && (
-                  <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                    <div className="bg-white rounded-lg shadow-xl border border-gray-100 py-2 min-w-[180px]">
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-[100]">
+                    <div className="bg-white shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-gray-100 py-3 min-w-[280px]">
                       {item.submenu.map((subitem) => (
                         <Link
                           key={subitem.href}
                           href={subitem.href}
-                          className="block px-4 py-2 text-navy hover:text-bronze hover:bg-gray-50 text-xs uppercase tracking-wider transition-colors"
+                          className="block px-6 py-3 text-navy hover:text-bronze hover:bg-gray-50 text-[11px] font-semibold uppercase tracking-wider transition-all border-l-2 border-transparent hover:border-bronze"
+                          onClick={() => setMobileMenuOpen(false)}
                         >
                           {subitem.label}
                         </Link>
@@ -86,7 +87,7 @@ export default function Header() {
               href={siteConfig.social.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3 bg-navy text-white text-[10px] uppercase tracking-widest font-semibold hover:bg-bronze transition-all shadow-lg active:scale-95"
+              className="px-8 py-3 bg-navy text-white text-[12px] uppercase tracking-widest font-semibold hover:bg-bronze transition-all shadow-lg active:scale-95"
             >
               Consultoria
             </a>

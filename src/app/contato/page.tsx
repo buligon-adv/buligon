@@ -15,8 +15,10 @@ export default function ContatoPage() {
   return (
     <>
       <Hero
-        title="Entre em Contato"
-        subtitle="Estamos prontos para ouvir sua demanda e oferecer a melhor orientação"
+        title="Contato"
+        subtitle="Estamos à disposição para atender sua demanda com o sigilo e o rigor técnico necessários."
+        backgroundImage="/Estrutura Buligon 05.jpg"
+        overlayOpacity="bg-navy/60"
       />
 
       <Section>
@@ -27,7 +29,7 @@ export default function ContatoPage() {
               Envie sua mensagem
             </h2>
             <p className="text-gray-600 mb-6">
-              Preencha o formulário abaixo e entraremos em contato em até 24 horas.
+              Preencha o formulário abaixo e entraremos em contato o mais breve possível.
             </p>
             <ContactForm />
           </div>
@@ -81,7 +83,7 @@ export default function ContatoPage() {
                   >
                     {siteConfig.email}
                   </a>
-                  <p className="text-gray-500 text-sm">Resposta em até 24 horas</p>
+                  <p className="text-gray-500 text-sm">Clique para enviar um e-mail direto</p>
                 </div>
               </div>
 
@@ -130,11 +132,11 @@ export default function ContatoPage() {
             </div>
 
             {/* Horário */}
-            <div className="mt-8 p-6 bg-gray-50">
+            <div className="mt-8 p-6 bg-gray-50 border-l-4 border-bronze">
               <h3 className="font-semibold text-gray-900 mb-2">Horário de Atendimento</h3>
               <p className="text-gray-600 text-sm">
                 Segunda a Sexta: 9h às 18h<br />
-                Sábado: 9h às 12h (agendamento prévio)
+                Atendimento presencial mediante agendamento.
               </p>
             </div>
           </div>

@@ -26,8 +26,9 @@ export const siteConfig = {
   // Redes sociais
   social: {
     whatsapp: 'https://wa.me/554130154161',
-    instagram: 'https://instagram.com/buligonadvogados',
-    linkedin: 'https://linkedin.com/company/buligon-advogados',
+    instagram: 'https://www.instagram.com/buligonadvogados/?hl=pt-br',
+    linkedin: 'https://www.linkedin.com/company/12649348',
+    facebook: 'https://www.facebook.com/Buligon-Buligon-Sociedade-de-Advogados-1057613344399693/',
   },
   
   // Cores
@@ -43,12 +44,19 @@ export const siteConfig = {
       label: 'O Escritório', 
       href: '/sobre',
       submenu: [
-        { label: 'Estrutura', href: '/sobre#estrutura' },
-        { label: 'Profissionais', href: '/equipe' },
+        { label: 'O Escritório', href: '/sobre' },
+        { label: 'Equipe', href: '/equipe' },
       ]
     },
-    { label: 'Áreas de Atuação', href: '/areas' },
-    { label: 'Notícias', href: '/noticias' },
+    { 
+      label: 'Áreas de Atuação', 
+      href: '/areas',
+      submenu: [
+        { label: 'Atendimento às Empresas', href: '/areas#empresas' },
+        { label: 'Agentes Públicos e Políticos', href: '/areas#agentes-publicos' },
+        { label: 'Soluções Pessoais', href: '/areas#pessoal' },
+      ]
+    },
     { label: 'Contato', href: '/contato' },
   ],
 };
