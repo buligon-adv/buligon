@@ -22,7 +22,7 @@ export default function Footer() {
                 quality={100}
               />
             </Link>
-            <p className="text-gray-400 text-sm leading-relaxed mb-8">
+            <p className="text-gray-400 text-base md:text-sm leading-relaxed mb-8">
               Consultoria jurídica estratégica. Excelência em Direito Público, Administrativo e Tributário para clientes que buscam segurança e resultados.
             </p>
             <div className="flex gap-4">
@@ -48,7 +48,7 @@ export default function Footer() {
             <ul className="space-y-4">
               {siteConfig.navigation.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="text-gray-400 hover:text-white transition-colors text-sm font-light">
+                  <Link href={item.href} className="text-gray-400 hover:text-white transition-colors text-base md:text-sm font-light">
                     {item.label}
                   </Link>
                 </li>
@@ -61,12 +61,12 @@ export default function Footer() {
             <h4 className="font-sans font-semibold text-lg mb-8 text-bronze uppercase tracking-widest">Links Úteis</h4>
             <ul className="space-y-4">
               <li>
-                <Link href="/areas" className="text-gray-400 hover:text-white transition-colors text-sm font-light">
+                <Link href="/areas" className="text-gray-400 hover:text-white transition-colors text-base md:text-sm font-light">
                   Áreas de Atuação
                 </Link>
               </li>
               <li>
-                <Link href="/privacidade" className="text-gray-400 hover:text-white transition-colors text-sm font-light">
+                <Link href="/privacidade" className="text-gray-400 hover:text-white transition-colors text-base md:text-sm font-light">
                   Política de Privacidade
                 </Link>
               </li>
@@ -76,10 +76,10 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h4 className="font-sans font-semibold text-lg mb-8 text-bronze uppercase tracking-widest">Escritório</h4>
-            <ul className="space-y-6 text-sm">
+            <ul className="space-y-6 text-base md:text-sm">
               <li className="flex gap-4">
                 <span className="text-bronze">Endereço:</span>
-                <span className="text-gray-400 font-light">
+                <span className="text-gray-400 font-light text-base md:text-sm">
                   {siteConfig.address.street}<br />
                   {siteConfig.address.neighborhood} - CEP {siteConfig.address.zipCode}<br />
                   {siteConfig.address.city} – {siteConfig.address.state}
@@ -87,13 +87,13 @@ export default function Footer() {
               </li>
               <li className="flex gap-4">
                 <span className="text-bronze">E-mail:</span>
-                <a href={`mailto:${siteConfig.email}`} className="text-gray-400 hover:text-white font-light transition-colors">
+                <a href={`mailto:${siteConfig.email}`} className="text-gray-400 hover:text-white font-light transition-colors text-base md:text-sm">
                   {siteConfig.email}
                 </a>
               </li>
               <li className="flex gap-4">
                 <span className="text-bronze">Tel:</span>
-                <a href="tel:+554130154161" className="text-gray-400 hover:text-white font-light transition-colors">
+                <a href="tel:+554130154161" className="text-gray-400 hover:text-white font-light transition-colors text-base md:text-sm">
                   {siteConfig.phone}
                 </a>
               </li>

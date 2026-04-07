@@ -139,7 +139,7 @@ export default function Home() {
                <div className="w-8 h-8 text-bronze mb-4">
                  <svg fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21L14.017 18C14.017 16.8954 13.1216 16 12.017 16L9.017 16V13H12.017C13.1216 13 14.017 12.1046 14.017 11V8L14.017 5L20.017 5L20.017 21L14.017 21ZM4.0166 21V5L10.0166 5L10.0166 11H7.0166V16H10.0166V21L4.0166 21Z"/></svg>
                </div>
-               <p className="font-sans italic font-semibold text-navy leading-relaxed text-sm">"A segurança jurídica é o alicerce indispensável de qualquer conquista sustentável."</p>
+               <p className="font-sans italic font-semibold text-navy leading-relaxed text-base md:text-sm">"A segurança jurídica é o alicerce indispensável de qualquer conquista sustentável."</p>
             </div>
           </div>
         </div>
@@ -262,7 +262,7 @@ export default function Home() {
           <div className="lg:col-span-4">
             <span className="text-bronze uppercase tracking-[0.3em] text-xs font-semibold mb-4 block">FAQ</span>
             <h2 className="text-4xl font-sans font-semibold text-navy mb-6">Dúvidas Frequentes</h2>
-            <p className="text-gray-500 text-sm leading-relaxed mb-8">
+            <p className="text-gray-500 text-base md:text-sm leading-relaxed mb-8">
               Compilamos as principais dúvidas para ajudar você a entender melhor como funciona nosso atendimento e as particularidades do Direito Público.
             </p>
             <a href={siteConfig.social.whatsapp} className="inline-block px-8 py-3 bg-navy text-white text-[10px] uppercase tracking-widest font-bold hover:bg-bronze transition-colors">
