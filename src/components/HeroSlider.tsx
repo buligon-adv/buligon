@@ -90,8 +90,8 @@ export default function HeroSlider({ slides }: HeroSliderProps) {
               {slide.subtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-6 relative">
-              {/* Selo rotativo - Otimizado para mobile (fixo à direita no topo do CTA ou flutuante) */}
-              <div className="absolute -top-32 right-0 sm:left-auto sm:right-[400px] lg:right-[520px] lg:-top-20 z-50 pointer-events-none sm:pointer-events-auto">
+              {/* Selo rotativo - Otimizado para mobile (Posicionado mais ao topo para não conflitar com texto/CTA) */}
+              <div className="absolute -top-40 right-0 sm:left-auto sm:right-[400px] lg:right-[520px] lg:-top-24 z-50 pointer-events-none sm:pointer-events-auto">
                 <div className="scale-75 sm:scale-75 lg:scale-110 hover:scale-125 transition-transform duration-500 origin-bottom-right">
                   <RotatingSeal />
                 </div>
