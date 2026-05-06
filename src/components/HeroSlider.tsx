@@ -74,7 +74,7 @@ export default function HeroSlider({ slides }: HeroSliderProps) {
       <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-white/[0.03] to-transparent pointer-events-none" />
       <div className="absolute left-10 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-bronze/30 to-transparent hidden lg:block" />
       
-      <div className="container mx-auto px-4 sm:px-6 lg:px-12 relative z-10 pt-20 lg:pt-0">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12 relative z-10 pt-24 md:pt-36">
           <div className={`transition-all duration-700 ${isFading ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'}`}>
             <div className="inline-block h-1 w-16 sm:w-20 bg-bronze mb-6 sm:mb-8 animate-pulse" />
             <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-sans font-semibold text-white mb-6 sm:mb-8 leading-[1.1] tracking-tight max-w-[15ch] sm:max-w-[20ch]">
