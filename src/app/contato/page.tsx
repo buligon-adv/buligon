@@ -42,9 +42,9 @@ export default function ContatoPage() {
 
             <div className="space-y-6">
               {/* WhatsApp */}
-              <div className="flex gap-4">
+              <div className="flex items-center gap-4">
                 <div
-                  className="flex-shrink-0 w-12 h-12 flex items-center justify-center"
+                  className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full transition-transform hover:scale-110"
                   style={{ backgroundColor: 'var(--color-navy)' }}
                 >
                   <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -52,23 +52,22 @@ export default function ContatoPage() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900">WhatsApp</h3>
                   <a
                     href={siteConfig.social.whatsapp}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-bronze hover:underline"
+                    className="text-bronze font-semibold hover:underline"
                   >
                     {siteConfig.phone}
                   </a>
-                  <p className="text-gray-500 text-sm">Atendimento rápido e direto</p>
+                  <p className="text-gray-500 text-sm">WhatsApp</p>
                 </div>
               </div>
 
               {/* E-mail */}
-              <div className="flex gap-4">
+              <div className="flex items-center gap-4">
                 <div
-                  className="flex-shrink-0 w-12 h-12 flex items-center justify-center"
+                  className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full transition-transform hover:scale-110"
                   style={{ backgroundColor: 'var(--color-navy)' }}
                 >
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -76,21 +75,20 @@ export default function ContatoPage() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900">E-mail</h3>
                   <a
                     href={`mailto:${siteConfig.email}`}
-                    className="text-bronze hover:underline"
+                    className="text-bronze font-semibold hover:underline"
                   >
                     {siteConfig.email}
                   </a>
-                  <p className="text-gray-500 text-sm">Clique para enviar um e-mail direto</p>
+                  <p className="text-gray-500 text-sm">E-mail</p>
                 </div>
               </div>
 
               {/* Telefone */}
-              <div className="flex gap-4">
+              <div className="flex items-center gap-4">
                 <div
-                  className="flex-shrink-0 w-12 h-12 flex items-center justify-center"
+                  className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full transition-transform hover:scale-110"
                   style={{ backgroundColor: 'var(--color-navy)' }}
                 >
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -98,21 +96,20 @@ export default function ContatoPage() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900">Telefone</h3>
                   <a
                     href="tel:+554130154161"
-                    className="text-bronze hover:underline"
+                    className="text-bronze font-semibold hover:underline"
                   >
                     {siteConfig.phone}
                   </a>
-                  <p className="text-gray-500 text-sm">Horário comercial</p>
+                  <p className="text-gray-500 text-sm">Telefone</p>
                 </div>
               </div>
 
               {/* Endereço */}
-              <div className="flex gap-4">
+              <div className="flex items-start gap-4">
                 <div
-                  className="flex-shrink-0 w-12 h-12 flex items-center justify-center"
+                  className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full transition-transform hover:scale-110"
                   style={{ backgroundColor: 'var(--color-navy)' }}
                 >
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -121,8 +118,7 @@ export default function ContatoPage() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900">Endereço</h3>
-                  <p className="text-gray-700">
+                  <p className="text-gray-700 leading-tight">
                     {siteConfig.address.street}<br />
                     {siteConfig.address.neighborhood} - CEP {siteConfig.address.zipCode}<br />
                     {siteConfig.address.city} – {siteConfig.address.state}
@@ -143,26 +139,31 @@ export default function ContatoPage() {
         </div>
       </Section>
 
-      {/* Imagem do Escritório */}
-      <Section backgroundColor="bg-gray-50">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="relative aspect-[4/3] overflow-hidden">
-            <Image
-              src="/Estrutura Buligon 02.jpg"
-              alt="Escritório Buligon Advogados"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-          </div>
-          <div className="relative aspect-[4/3] overflow-hidden">
-            <Image
-              src="/Estrutura Buligon 03.jpg"
-              alt="Sala de Reuniões Buligon Advogados"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
+      {/* Mapa do Google */}
+      <Section backgroundColor="bg-gray-50" noPadding containerSize="full">
+        <div className="w-full h-[550px] relative group">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3603.6558299863415!2d-49.2798836!3d-25.4163013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce41828f967ad%3A0xe67db7368536f98!2sR.%20Prof.%20Macedo%20Filho%2C%20315%20-%20Bom%20Retiro%2C%20Curitiba%20-%20PR%2C%2080520-340!5e0!3m2!1spt-BR!2sbr!4v1715000000000!5m2!1spt-BR!2sbr"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen={true}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Localização Buligon Advogados"
+            className="grayscale contrast-125 brightness-90 border-none transition-all duration-700"
+          ></iframe>
+          
+          {/* Custom Floating Pin/Marker */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none flex flex-col items-center">
+            <div className="w-16 h-16 bg-white rounded-full p-3 shadow-2xl border border-bronze/20 animate-bounce transition-transform group-hover:scale-110">
+              <img 
+                src="/icone logo buligon.svg" 
+                alt="Buligon Advogados"
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="w-3 h-3 bg-bronze rounded-full blur-[2px] mt-1 opacity-50" />
           </div>
         </div>
       </Section>

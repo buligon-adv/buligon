@@ -15,7 +15,7 @@ export default function PracticeAreaCard({
 
   return (
     <a
-      href={`/area/${slug}`}
+      href="/areas"
       className="group relative p-8 h-full flex flex-col transition-all duration-500 bg-white border-b border-gray-100 last:border-b-0 md:border-b-0 md:border-r md:last:border-r-0 hover:bg-navy"
     >
       <div className="flex justify-between items-start mb-12">
@@ -34,7 +34,7 @@ export default function PracticeAreaCard({
       </p>
 
       <div className="mt-auto flex items-center text-xs uppercase tracking-widest font-bold text-bronze group-hover:text-white transition-colors duration-500">
-        <span>Explorar Detalhes</span>
+        <span>Conhecer Soluções</span>
         <svg className="w-4 h-4 ml-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
         </svg>

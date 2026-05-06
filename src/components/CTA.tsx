@@ -12,7 +12,7 @@ export default function CTA({
   title = "Agende uma Consultoria Estratégica",
   description = "Nossa equipe está pronta para oferecer a melhor orientação jurídica para o seu caso. Excelência, sigilo e foco em resultados.",
   ctaText = "Falar com Especialista",
-  ctaHref = siteConfig.social.whatsapp,
+  ctaHref = "/contato",
 }: CTAProps) {
   return (
     <div className="py-24 sm:py-32 px-4 relative overflow-hidden">
@@ -27,14 +27,12 @@ export default function CTA({
           {description}
         </p>
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-          <a
-            href={ctaHref}
-            target={ctaHref.startsWith('http') ? '_blank' : undefined}
-            rel={ctaHref.startsWith('http') ? 'noopener noreferrer' : undefined}
+          <Link
+            href="/contato"
             className="px-12 py-5 bg-navy text-white font-bold uppercase tracking-[0.2em] text-[11px] lg:text-xs hover:bg-bronze transition-all shadow-2xl rounded-none"
           >
             {ctaText}
-          </a>
+          </Link>
           <Link
             href="/contato"
             className="text-navy text-[11px] lg:text-xs uppercase tracking-[0.2em] font-bold border-b-2 border-bronze hover:border-navy transition-all pb-1 ml-0 sm:ml-4"

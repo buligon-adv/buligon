@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import Link from 'next/link';
 import { siteConfig } from '@/lib/site';
 import RotatingSeal from './RotatingSeal';
 
@@ -52,14 +53,14 @@ export default function HeroSlider({ slides }: HeroSliderProps) {
   const slide = slides[current];
 
   return (
-    <section className="relative min-h-[95vh] flex items-center overflow-hidden bg-navy">
+    <section className="relative min-h-[600px] max-h-[750px] h-[75vh] sm:h-[85vh] flex items-center overflow-hidden bg-navy max-w-[1920px] mx-auto">
       {/* Background with cross-fade */}
       <div 
         className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${isFading ? 'opacity-40' : 'opacity-100'}`}
         style={
           slide.backgroundImage
             ? {
-                backgroundImage: `linear-gradient(rgba(12, 31, 64, 0.85), rgba(12, 31, 64, 0.75)), url(${slide.backgroundImage})`,
+                backgroundImage: `linear-gradient(rgba(12, 31, 64, 0.75), rgba(12, 31, 64, 0.85)), url(${slide.backgroundImage})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
               }
@@ -73,10 +74,10 @@ export default function HeroSlider({ slides }: HeroSliderProps) {
       <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-white/[0.03] to-transparent pointer-events-none" />
       <div className="absolute left-10 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-bronze/30 to-transparent hidden lg:block" />
       
-      <div className="container mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12 relative z-10 pt-20 lg:pt-0">
           <div className={`transition-all duration-700 ${isFading ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'}`}>
-            <div className="inline-block h-1 w-20 bg-bronze mb-8 animate-pulse" />
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-sans font-semibold text-white mb-8 leading-[1.1] tracking-tight max-w-[12ch] sm:max-w-[20ch]">
+            <div className="inline-block h-1 w-16 sm:w-20 bg-bronze mb-6 sm:mb-8 animate-pulse" />
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-sans font-semibold text-white mb-6 sm:mb-8 leading-[1.1] tracking-tight max-w-[15ch] sm:max-w-[20ch]">
               {slide.title.split(' ').map((word, i) => (
                 <span 
                   key={i} 
@@ -86,36 +87,47 @@ export default function HeroSlider({ slides }: HeroSliderProps) {
                 </span>
               ))}
             </h1>
-            <p className="text-lg sm:text-2xl text-gray-300 mb-12 leading-relaxed max-w-2xl font-light">
+            <p className="text-base sm:text-2xl text-gray-300 mb-8 sm:mb-12 leading-relaxed max-w-xl sm:max-w-2xl font-light">
               {slide.subtitle}
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 relative">
-              {/* Selo rotativo - Otimizado para mobile (Posicionado ainda mais ao topo para evitar sobreposição de textos dos banners) */}
-              <div className="absolute -top-80 right-0 sm:left-auto sm:right-[400px] lg:right-[520px] lg:-top-24 z-50 pointer-events-none sm:pointer-events-auto">
-                <div className="scale-75 sm:scale-75 lg:scale-110 hover:scale-125 transition-transform duration-500 origin-bottom-right">
-                  <RotatingSeal />
-                </div>
-              </div>
-
+            <div className="flex items-center gap-6 mt-2">
               {slide.cta && (
-                <a
+                <Link
                   href={slide.cta.href}
-                  className="px-10 py-4 rounded-none font-bold text-white transition-all bg-bronze hover:bg-bronze-light shadow-xl text-center uppercase tracking-widest text-xs"
+                  className="group relative inline-flex items-center gap-4 text-white text-[11px] sm:text-[12px] uppercase tracking-[0.3em] font-medium transition-all"
                 >
-                  {slide.cta.label}
-                </a>
+                  <span className="group-hover:text-bronze transition-colors flex items-center gap-3">
+                    {slide.cta.label}
+                    <svg 
+                      className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform duration-300 text-bronze/80" 
+                      fill="none" 
+                      viewBox="0 0 24 24" 
+                      stroke="currentColor" 
+                      strokeWidth={1.5}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                    </svg>
+                  </span>
+                  <span className="absolute -bottom-2 left-0 w-8 h-[1px] bg-bronze/50 group-hover:w-full transition-all duration-500 ease-out" />
+                </Link>
               )}
-              {slide.secondaryCta && (
-                <a
-                  href={slide.secondaryCta.href}
-                  className="px-10 py-4 rounded-none font-bold text-white border border-white/30 backdrop-blur-sm transition-all hover:bg-white hover:text-navy hover:border-white text-center uppercase tracking-widest text-xs"
-                >
-                  {slide.secondaryCta.label}
-                </a>
-              )}
+            </div>
+
+            {/* Selo mobile/tablet — abaixo dos CTAs, centralizado, sem sobrepor nada */}
+            <div className="lg:hidden flex justify-start mt-12">
+              <div className="scale-75 origin-left opacity-90 transition-transform duration-500">
+                <RotatingSeal />
+              </div>
             </div>
           </div>
         </div>
+
+      {/* Selo desktop — posicionado na parte inferior para não sobrepor os textos do slider */}
+      <div className="hidden lg:block absolute right-[5%] xl:right-[8%] bottom-16 xl:bottom-24 z-20 pointer-events-none xl:pointer-events-auto">
+        <div className="scale-90 xl:scale-110 hover:scale-[1.2] transition-transform duration-700 origin-center bg-white/5 backdrop-blur-sm p-4 rounded-full border border-white/10">
+          <RotatingSeal />
+        </div>
+      </div>
 
       {/* Slider Controls - Centralized Risks Only */}
       <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex items-center z-20">

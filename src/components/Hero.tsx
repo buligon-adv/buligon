@@ -23,12 +23,12 @@ export default function Hero({
   size = 'compact',
   overlayOpacity,
 }: HeroProps) {
-  const heightClass = size === 'full' ? 'min-h-[85vh] lg:min-h-[90vh]' : 'min-h-[60vh] lg:min-h-[65vh]';
+  const heightClass = size === 'full' ? 'min-h-[85vh] lg:min-h-[90vh]' : 'min-h-[40vh] lg:min-h-[45vh]';
   const finalOverlay = overlayOpacity || 'bg-navy/80';
   
   return (
     <section
-      className={`relative ${heightClass} flex items-center overflow-hidden pt-24 pb-16 lg:pt-32 lg:pb-20`}
+      className={`relative ${heightClass} flex items-center overflow-hidden pt-32 pb-12 lg:pt-40 lg:pb-16`}
     >
       <div className="absolute inset-0">
         {backgroundImage && (
@@ -62,29 +62,9 @@ export default function Hero({
               </span>
             ))}
           </h1>
-          <p className="text-xl sm:text-2xl text-gray-300 mb-10 lg:mb-14 leading-relaxed max-w-2xl font-light">
+          <p className="text-xl sm:text-2xl text-gray-300 mb-0 leading-relaxed max-w-2xl font-light">
             {subtitle}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 lg:gap-8">
-            {cta && (
-              <a
-                href={cta.href}
-                target={cta.href.startsWith('http') ? '_blank' : undefined}
-                rel={cta.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className="px-10 lg:px-12 py-4 rounded-none font-bold text-white transition-all bg-bronze hover:bg-bronze-light shadow-xl text-center uppercase tracking-widest text-[10px] lg:text-xs"
-              >
-                {cta.label}
-              </a>
-            )}
-            {secondaryCta && (
-              <a
-                href={secondaryCta.href}
-                className="px-10 lg:px-12 py-4 rounded-none font-bold text-white border border-white/30 backdrop-blur-sm transition-all hover:bg-white hover:text-navy hover:border-white text-center uppercase tracking-widest text-[10px] lg:text-xs"
-              >
-                {secondaryCta.label}
-              </a>
-            )}
-          </div>
         </div>
       </div>
 

@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Hero from '@/components/Hero';
 import Section from '@/components/Section';
+import CTA from '@/components/CTA';
 import ImageCarousel from '@/components/ImageCarousel';
 import { siteConfig } from '@/lib/site';
 import { generateMetadata } from '@/lib/seo';
@@ -12,56 +13,42 @@ export const metadata: Metadata = generateMetadata({
   description: 'Buligon Advogados - Mais de 20 anos transformando desafios jurídicos em conquistas sólidas.',
 });
 
+interface TeamMember {
+  name: string;
+  role: string;
+  bio: string;
+  specialties: string[];
+  image?: string;
+}
+
+const teamMembers: TeamMember[] = [
+  {
+    name: 'Dr. Vinícius Buligon',
+    role: 'Advogado Sócio-Fundador',
+    bio: 'Especialista em Direito Eleitoral e Administrativo, com foco em defesas perante os Tribunais Superiores e órgãos de controle.',
+    specialties: ['Direito Eleitoral', 'Controle Externo', 'Pessoa Física'],
+    image: '/Dr.%20Vin%C3%ADcius%20Buligon.jpg'
+  },
+  {
+    name: 'Dr. Diego Buligon',
+    role: 'Advogado Sócio-Fundador',
+    bio: 'Pós-Doutor em Direito pela Universidade de Bolonha, Itália. Especialista em Direito Administrativo e Constitucional.',
+    specialties: ['Direito Público', 'Administrativo', 'Gestão Municipal'],
+    image: '/Dr.%20Diego%20Buligon.jpg'
+  },
+  {
+    name: 'Dr. Afonso Ricardo',
+    role: 'Advogado Associado',
+    bio: 'Especialista em Direito Empresarial e Civil, conduzindo resoluções complexas de conflitos corporativos e contratuais.',
+    specialties: ['Direito Empresarial', 'Contencioso Cível', 'Recuperação Judicial'],
+    image: '/Dr.%20Afonso%20Ricardo.jpg'
+  },
+];
+
 const stats = [
   { number: '20+', label: 'Anos de atuação' },
   { number: '1000+', label: 'Casos resolvidos' },
   { number: '100%', label: 'Sigilo garantido' },
-];
-
-const diferenciais = [
-  {
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-      </svg>
-    ),
-    title: 'Precisão Técnica',
-    description: 'Soluções adequadas ao risco, tempo e objetivo.',
-  },
-  {
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-      </svg>
-    ),
-    title: 'Sigilo Absoluto',
-    description: 'Discrição e confidencialidade em cada etapa.',
-  },
-  {
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-      </svg>
-    ),
-    title: 'Atuação Proativa',
-    description: 'Antecipamos riscos antes que se tornem problemas.',
-  },
-  {
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-      </svg>
-    ),
-    title: 'Parceria Real',
-    description: 'Seu sucesso é nossa medida de êxito.',
-  },
-];
-
-const metodo = [
-  { step: '01', title: 'Escuta', description: 'Entendemos seu cenário e objetivos' },
-  { step: '02', title: 'Diagnóstico', description: 'Mapeamos riscos e oportunidades' },
-  { step: '03', title: 'Estratégia', description: 'Definimos a melhor abordagem' },
-  { step: '04', title: 'Execução', description: 'Atuamos com precisão e agilidade' },
 ];
 
 const estruturaImages = [
@@ -82,29 +69,7 @@ export default function SobrePage() {
         subtitle="Onde o comum termina, começa o nosso trabalho."
         backgroundImage="/Estrutura Buligon 01.jpg"
         overlayOpacity="bg-navy/60"
-        cta={{
-          label: 'Agendar Consultoria',
-          href: siteConfig.social.whatsapp
-        }}
-        secondaryCta={{
-          label: 'Áreas de Atuação',
-          href: '/areas'
-        }}
       />
-
-      {/* PROVA DE AUTORIDADE - NÚMEROS */}
-      <section className="bg-white border-b border-gray-100">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-12">
-          <div className="grid grid-cols-3 divide-x divide-gray-100">
-            {stats.map((stat, index) => (
-              <div key={index} className="py-12 lg:py-16 text-center">
-                <span className="block text-4xl lg:text-5xl font-semibold text-navy mb-2">{stat.number}</span>
-                <span className="text-gray-500 text-[10px] uppercase tracking-[0.2em]">{stat.label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* NOSSA HISTÓRIA - Design Redesenhado */}
       <Section className="relative overflow-hidden">
@@ -118,30 +83,17 @@ export default function SobrePage() {
               <div className="space-y-4">
                 <span className="text-bronze uppercase tracking-[0.4em] text-[10px] font-bold block">Legado e Estratégia</span>
                 <h2 className="text-4xl sm:text-5xl font-sans font-semibold text-navy leading-tight">
-                  Advocacia para quem <span className="italic text-bronze text-3xl sm:text-4xl align-middle">não pode errar.</span>
+                   Buligon <span className="italic text-bronze text-3xl sm:text-4xl align-middle">Advogados.</span>
                 </h2>
               </div>
               
               <div className="space-y-6 text-gray-500 text-lg font-light leading-relaxed">
-                <p className="border-l-4 border-bronze pl-8 italic">
-                  "Onde o comum termina, começa o nosso trabalho. Esta é a premissa que guia o Buligon Advogados desde sua fundação."
-                </p>
                 <p>
-                  Com mais de 20 anos de trajetória, consolidamos uma atuação marcada pelo rigor técnico e pela busca incansável por soluções jurídicas que transcendem o óbvio.
+                  Com uma trajetória que já soma mais de duas décadas de atuação, Buligon Advogados consolidou um legado de soluções jurídicas estratégicas e resultados consistentes. Nossa credibilidade é forjada em anos de dedicação ao atendimento de agentes públicos, políticos e empresas, oferecendo um suporte jurídico robusto e proativo que antecipa desafios e otimiza oportunidades.
                 </p>
-              </div>
-
-              {/* Selo de Confidencialidade */}
-              <div className="pt-8 flex items-center gap-4 border-t border-gray-100">
-                <div className="w-12 h-12 bg-navy flex items-center justify-center">
-                  <svg className="w-6 h-6 text-bronze" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                  </svg>
-                </div>
-                <div>
-                  <span className="block text-navy font-bold text-xs uppercase tracking-widest">Sigilo Absoluto</span>
-                  <span className="text-[10px] text-gray-400 uppercase tracking-wider">Protocolo de Confidencialidade Garantido</span>
-                </div>
+                <p className="border-l-4 border-bronze pl-8 italic">
+                  "Quando muitos encerram, nós vamos além. Esta é premissa que guia o Buligon Advogados desde a sua fundação."
+                </p>
               </div>
             </div>
 
@@ -155,10 +107,10 @@ export default function SobrePage() {
                 </h3>
                 <div className="space-y-6 text-gray-600 leading-relaxed font-light text-base lg:text-lg">
                   <p>
-                    Acreditamos que cada caso é único e exige uma abordagem singular. Nossa estrutura foi desenhada para oferecer um atendimento personalizado, onde os sócios participam ativamente da estratégia de cada demanda.
+                    Compreendemos a complexidade de cada caso e adaptamos nossas estratégias para oferecer soluções jurídicas personalizadas, que unem a singularidade de cada cliente, visão prática e rigor técnico, contribuindo para resultados seguros e eficientes.
                   </p>
                   <p>
-                    Especializados em demandas complexas, atuamos na intersecção entre o Direito Público e as necessidades do setor corporativo e privado, mitigando riscos e antecipando cenários com precisão cirúrgica.
+                    Acreditamos que uma advocacia eficaz vai além da técnica jurídica, ela se constrói na base de relacionamentos sólidos e de confiança mútua. No Buligon Advogados, todo cliente é um parceiro estratégico cujo sucesso é nossa maior medida de êxito.
                   </p>
                 </div>
               </div>
@@ -171,78 +123,11 @@ export default function SobrePage() {
                 </h3>
                 <div className="space-y-6 text-gray-600 leading-relaxed font-light text-base lg:text-lg">
                   <p>
-                    Nossa expertise permite transitar com autoridade perante Tribunais de Contas, órgãos de controle e instâncias superiores, oferecendo defesas robustas e pareceres de alta complexidade técnica.
-                  </p>
-                  <p>
-                    O Buligon Advogados não apenas resolve conflitos; nós desenhamos caminhos seguros para que nossos clientes possam focar em seus objetivos institucionais e pessoais com total tranquilidade jurídica.
+                    Atuamos onde a exigência é maior: em cenários que pedem prudência, precisão, discrição e preparo. Cada demanda é tratada com método, profundidade e contexto — porque a solução jurídica não pode ser apenas correta; ela precisa ser adequada ao risco, ao tempo e ao objetivo de quem confia no nosso trabalho.
                   </p>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </Section>
-
-      {/* MÉTODO - Design de Alta Performance */}
-      <Section backgroundColor="bg-navy" className="text-white overflow-hidden py-24 lg:py-40">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-            {/* Cabeçalho do Método */}
-            <div className="lg:col-span-4 space-y-6">
-              <span className="text-bronze uppercase tracking-[0.4em] text-[10px] font-bold block">Rigores e Processos</span>
-              <h2 className="text-4xl sm:text-5xl font-semibold text-white leading-tight">
-                Processo <br />
-                <span className="italic text-bronze">Decisório</span>
-              </h2>
-              <p className="text-gray-400 font-light text-lg leading-relaxed">
-                Nossa atuação é pautada por um método rigoroso que transforma complexidade em clareza estratégica.
-              </p>
-            </div>
-
-            {/* Grid de Passos */}
-            <div className="lg:col-span-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10 border border-white/10">
-                {metodo.map((item, index) => (
-                  <div 
-                    key={index} 
-                    className="bg-navy p-10 lg:p-14 group hover:bg-white/[0.03] transition-all duration-500 relative overflow-hidden"
-                  >
-                    {/* Número Decorativo de Fundo */}
-                    <span className="absolute -bottom-4 -right-2 text-8xl font-serif italic text-white/[0.03] group-hover:text-bronze/10 transition-colors pointer-events-none">
-                      {item.step}
-                    </span>
-                    
-                    <div className="relative z-10 space-y-4">
-                      <span className="text-bronze font-serif italic text-2xl mb-4 block">{item.step}</span>
-                      <h3 className="text-xl font-bold uppercase tracking-widest text-white group-hover:text-bronze transition-colors">
-                        {item.title}
-                      </h3>
-                      <div className="w-8 h-px bg-bronze/50 group-hover:w-16 transition-all duration-500" />
-                      <p className="text-gray-400 text-sm leading-relaxed font-light group-hover:text-gray-300 transition-colors">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </Section>
-
-      {/* DIFERENCIAIS - Grid Moderno */}
-      <Section>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-            {diferenciais.map((item, index) => (
-              <div key={index} className="space-y-6 py-6 border-b lg:border-b-0 lg:border-r border-gray-100 last:border-0 pr-8">
-                <div className="text-bronze">
-                  {item.icon}
-                </div>
-                <h3 className="text-lg font-bold text-navy uppercase tracking-widest">{item.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed font-light">{item.description}</p>
-              </div>
-            ))}
           </div>
         </div>
       </Section>
@@ -255,6 +140,71 @@ export default function SobrePage() {
         </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-12">
           <ImageCarousel images={estruturaImages} />
+        </div>
+      </Section>
+
+      {/* EQUIPE MIGRADA - Novo Bloco */}
+      <Section id="equipe">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+            <div className="max-w-2xl space-y-4">
+              <span className="text-bronze uppercase tracking-[0.4em] text-[10px] font-bold block">Corpo Jurídico</span>
+              <h2 className="text-4xl sm:text-5xl font-sans font-semibold text-navy leading-tight">
+                Comprometimento com a <span className="italic text-bronze">Justiça</span> e a Excelência
+              </h2>
+            </div>
+            <p className="text-gray-500 text-base max-w-md font-light border-l border-bronze/30 pl-6 mb-2">
+              A união entre solidez acadêmica e vasta experiência prática define nossa abordagem técnica e personalizada.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
+            {teamMembers.map((member, index) => (
+              <div key={index} className="group">
+                <div className="relative mb-10 overflow-visible">
+                  <div className="absolute -top-3 -right-3 w-20 h-20 border-t-2 border-r-2 border-bronze/20 z-0" />
+                  <div className="relative aspect-[4/5] overflow-hidden bg-gray-100 border border-gray-100 shadow-xl transition-all duration-700 group-hover:shadow-2xl group-hover:-translate-y-2 z-10">
+                    {member.image ? (
+                      <img 
+                        src={member.image} 
+                        alt={member.name}
+                        className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center bg-navy text-white text-4xl font-light">
+                        {member.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
+                      </div>
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute bottom-0 left-0 w-full h-1 bg-bronze scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="space-y-1">
+                    <h3 className="text-2xl font-semibold text-navy">
+                      {member.name}
+                    </h3>
+                    <p className="text-bronze uppercase tracking-[0.2em] text-[10px] font-bold">{member.role}</p>
+                  </div>
+                  <div className="w-12 h-px bg-bronze/30 group-hover:w-full transition-all duration-700" />
+                  <p className="text-gray-500 text-sm leading-relaxed font-light line-clamp-4">
+                    {member.bio}
+                  </p>
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    {member.specialties.map((specialty, idx) => (
+                      <span
+                        key={idx}
+                        className="px-4 py-2 text-[8px] uppercase tracking-[0.15em] font-bold bg-white border border-gray-100 text-gray-400 group-hover:text-navy group-hover:border-bronze/20 transition-all shadow-sm"
+                      >
+                        {specialty}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </Section>
 

@@ -83,7 +83,7 @@ export default function RootLayout({
       >
         <ScrollToTop />
         <Header />
-        <main className="min-h-screen">
+        <main className="min-h-screen pt-28 md:pt-40 lg:pt-40">
           {children}
         </main>
         <Footer />

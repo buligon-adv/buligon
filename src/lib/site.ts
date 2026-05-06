@@ -40,14 +40,7 @@ export const siteConfig = {
   // Menu principal
   navigation: [
     { label: 'Home', href: '/' },
-    { 
-      label: 'O Escritório', 
-      href: '/sobre',
-      submenu: [
-        { label: 'O Escritório', href: '/sobre' },
-        { label: 'Equipe', href: '/equipe' },
-      ]
-    },
+    { label: 'O Escritório', href: '/sobre' },
     { 
       label: 'Áreas de Atuação', 
       href: '/areas',
@@ -57,6 +50,7 @@ export const siteConfig = {
         { label: 'Soluções Pessoais', href: '/areas#pessoal' },
       ]
     },
+    { label: 'Notícias', href: '/noticias' },
     { label: 'Contato', href: '/contato' },
   ],
 };
