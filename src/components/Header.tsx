@@ -132,28 +132,8 @@ export default function Header() {
                   className="text-navy hover:text-bronze font-semibold text-[11px] uppercase tracking-[0.18em] transition-all relative flex items-center gap-1 whitespace-nowrap"
                 >
                   {item.label}
-                  {item.submenu && (
-                    <svg className="w-3 h-3 transition-transform group-hover:rotate-180 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  )}
                   <span className="absolute -bottom-1 left-0 w-0 h-px bg-bronze transition-all group-hover:w-full" />
                 </Link>
-                {item.submenu && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 group-hover:translate-y-0 translate-y-2 z-[100]">
-                    <div className="bg-white shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-gray-100 py-3 min-w-[240px]">
-                      {item.submenu.map((subitem) => (
-                        <Link
-                          key={subitem.href}
-                          href={subitem.href}
-                          className="block px-6 py-3 text-navy hover:text-bronze hover:bg-gray-50 text-[11px] font-semibold uppercase tracking-wider transition-all border-l-2 border-transparent hover:border-bronze"
-                        >
-                          {subitem.label}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                )}
               </div>
             ))}
           </div>
@@ -202,42 +182,11 @@ export default function Header() {
                   <Link
                     href={item.href}
                     className="flex-1 text-navy hover:text-bronze font-semibold text-[12px] uppercase tracking-wider transition-colors py-3 px-2"
-                    onClick={() => { if (!item.submenu) setMobileMenuOpen(false); }}
+                    onClick={() => setMobileMenuOpen(false)}
                   >
                     {item.label}
                   </Link>
-                  {item.submenu && (
-                    <button
-                      onClick={() => setOpenSubmenu(openSubmenu === item.href ? null : item.href)}
-                      className="p-2 text-navy"
-                      aria-label="Expandir submenu"
-                    >
-                      <svg
-                        className={`w-4 h-4 transition-transform ${openSubmenu === item.href ? 'rotate-180' : ''}`}
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </button>
-                  )}
                 </div>
-
-                {item.submenu && openSubmenu === item.href && (
-                  <div className="ml-4 pl-4 border-l-2 border-bronze/30 mb-2 flex flex-col gap-1">
-                    {item.submenu.map((subitem) => (
-                      <Link
-                        key={subitem.href}
-                        href={subitem.href}
-                        className="text-gray-600 hover:text-bronze text-[11px] uppercase tracking-wider font-medium transition-colors py-2"
-                        onClick={() => { setMobileMenuOpen(false); setOpenSubmenu(null); }}
-                      >
-                        {subitem.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
               </div>
             ))}
 

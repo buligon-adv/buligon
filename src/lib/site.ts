@@ -41,15 +41,7 @@ export const siteConfig = {
   navigation: [
     { label: 'Home', href: '/' },
     { label: 'O Escritório', href: '/sobre' },
-    { 
-      label: 'Áreas de Atuação', 
-      href: '/areas',
-      submenu: [
-        { label: 'Atendimento às Empresas', href: '/areas#empresas' },
-        { label: 'Agentes Públicos e Políticos', href: '/areas#agentes-publicos' },
-        { label: 'Soluções Pessoais', href: '/areas#pessoal' },
-      ]
-    },
+    { label: 'Áreas de Atuação', href: '/areas' },
     { label: 'Notícias', href: '/noticias' },
     { label: 'Contato', href: '/contato' },
   ],
