@@ -28,7 +28,7 @@ export default function Hero({
   
   return (
     <section
-      className={`relative ${heightClass} flex items-center overflow-hidden pt-24 pb-12 lg:pt-32 lg:pb-16`}
+      className={`relative ${heightClass} flex items-center overflow-hidden pt-16 pb-12 lg:pt-20 lg:pb-16`}
     >
       <div className="absolute inset-0">
         {backgroundImage && (
