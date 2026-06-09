@@ -77,55 +77,52 @@ export default function SobrePage() {
         <div className="absolute top-0 right-0 w-1/4 h-full bg-gray-50 -skew-x-12 translate-x-1/2 pointer-events-none" />
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-            {/* Coluna de Título e Intenção */}
-            <div className="lg:col-span-12 xl:col-span-5 space-y-8 lg:sticky lg:top-32">
-              <div className="space-y-4">
-                <span className="text-bronze uppercase tracking-[0.4em] text-[10px] font-bold block">Legado e Estratégia</span>
-                <h2 className="text-4xl sm:text-5xl font-sans font-semibold text-navy leading-tight">
-                   Buligon <span className="italic text-bronze text-3xl sm:text-4xl align-middle">Advogados.</span>
-                </h2>
-              </div>
-              
-              <div className="space-y-6 text-gray-500 text-lg font-light leading-relaxed">
+          {/* Texto superior */}
+          <div className="max-w-2xl mb-16 space-y-8">
+            <div className="space-y-4">
+              <span className="text-bronze uppercase tracking-[0.4em] text-[10px] font-bold block">Legado e Estratégia</span>
+              <h2 className="text-4xl sm:text-5xl font-sans font-semibold text-navy leading-tight">
+                Buligon <span className="italic text-bronze text-3xl sm:text-4xl align-middle">Advogados.</span>
+              </h2>
+            </div>
+            <div className="space-y-6 text-gray-500 text-lg font-light leading-relaxed">
+              <p>
+                Com uma trajetória que já soma mais de duas décadas de atuação, Buligon Advogados consolidou um legado de soluções jurídicas estratégicas e resultados consistentes. Nossa credibilidade é forjada em anos de dedicação ao atendimento de agentes públicos, políticos e empresas, oferecendo um suporte jurídico robusto e proativo que antecipa desafios e otimiza oportunidades.
+              </p>
+              <p className="border-l-4 border-bronze pl-8 italic">
+                "Quando muitos encerram, nós vamos além. Esta é premissa que guia o Buligon Advogados desde a sua fundação."
+              </p>
+            </div>
+          </div>
+
+          {/* Cards lado a lado */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-gray-50 p-10 border border-gray-100 shadow-sm relative overflow-hidden group hover:border-bronze/20 transition-all duration-500">
+              <div className="absolute top-0 left-0 w-1 h-0 bg-bronze group-hover:h-full transition-all duration-700" />
+              <h3 className="text-2xl font-semibold text-navy mb-8 flex items-center gap-4">
+                <span className="text-bronze italic font-serif text-3xl">01</span>
+                Nossa Essência
+              </h3>
+              <div className="space-y-6 text-gray-600 leading-relaxed font-light text-base">
                 <p>
-                  Com uma trajetória que já soma mais de duas décadas de atuação, Buligon Advogados consolidou um legado de soluções jurídicas estratégicas e resultados consistentes. Nossa credibilidade é forjada em anos de dedicação ao atendimento de agentes públicos, políticos e empresas, oferecendo um suporte jurídico robusto e proativo que antecipa desafios e otimiza oportunidades.
+                  Compreendemos a complexidade de cada caso e adaptamos nossas estratégias para oferecer soluções jurídicas personalizadas, que unem a singularidade de cada cliente, visão prática e rigor técnico, contribuindo para resultados seguros e eficientes.
                 </p>
-                <p className="border-l-4 border-bronze pl-8 italic">
-                  "Quando muitos encerram, nós vamos além. Esta é premissa que guia o Buligon Advogados desde a sua fundação."
+                <p>
+                  Acreditamos que uma advocacia eficaz vai além da técnica jurídica, ela se constrói na base de relacionamentos sólidos e de confiança mútua. No Buligon Advogados, todo cliente é um parceiro estratégico cujo sucesso é nossa maior medida de êxito.
                 </p>
               </div>
             </div>
 
-            {/* Coluna de Conteúdo Detalhado */}
-            <div className="lg:col-span-12 xl:col-span-7 space-y-12">
-              <div className="bg-gray-50 p-10 lg:p-16 border border-gray-100 shadow-sm relative overflow-hidden group hover:border-bronze/20 transition-all duration-500">
-                <div className="absolute top-0 left-0 w-1 h-0 bg-bronze group-hover:h-full transition-all duration-700" />
-                <h3 className="text-2xl font-semibold text-navy mb-8 flex items-center gap-4">
-                  <span className="text-bronze italic font-serif text-3xl">01</span>
-                  Nossa Essência
-                </h3>
-                <div className="space-y-6 text-gray-600 leading-relaxed font-light text-base lg:text-lg">
-                  <p>
-                    Compreendemos a complexidade de cada caso e adaptamos nossas estratégias para oferecer soluções jurídicas personalizadas, que unem a singularidade de cada cliente, visão prática e rigor técnico, contribuindo para resultados seguros e eficientes.
-                  </p>
-                  <p>
-                    Acreditamos que uma advocacia eficaz vai além da técnica jurídica, ela se constrói na base de relacionamentos sólidos e de confiança mútua. No Buligon Advogados, todo cliente é um parceiro estratégico cujo sucesso é nossa maior medida de êxito.
-                  </p>
-                </div>
-              </div>
-
-              <div className="bg-white p-10 lg:p-16 border border-gray-100 shadow-sm relative overflow-hidden group hover:border-bronze/20 transition-all duration-500">
-                <div className="absolute top-0 left-0 w-1 h-0 bg-bronze group-hover:h-full transition-all duration-700" />
-                <h3 className="text-2xl font-semibold text-navy mb-8 flex items-center gap-4">
-                  <span className="text-bronze italic font-serif text-3xl">02</span>
-                  Atuação Estratégica
-                </h3>
-                <div className="space-y-6 text-gray-600 leading-relaxed font-light text-base lg:text-lg">
-                  <p>
-                    Atuamos onde a exigência é maior: em cenários que pedem prudência, precisão, discrição e preparo. Cada demanda é tratada com método, profundidade e contexto — porque a solução jurídica não pode ser apenas correta; ela precisa ser adequada ao risco, ao tempo e ao objetivo de quem confia no nosso trabalho.
-                  </p>
-                </div>
+            <div className="bg-white p-10 border border-gray-100 shadow-sm relative overflow-hidden group hover:border-bronze/20 transition-all duration-500">
+              <div className="absolute top-0 left-0 w-1 h-0 bg-bronze group-hover:h-full transition-all duration-700" />
+              <h3 className="text-2xl font-semibold text-navy mb-8 flex items-center gap-4">
+                <span className="text-bronze italic font-serif text-3xl">02</span>
+                Atuação Estratégica
+              </h3>
+              <div className="space-y-6 text-gray-600 leading-relaxed font-light text-base">
+                <p>
+                  Atuamos onde a exigência é maior: em cenários que pedem prudência, precisão, discrição e preparo. Cada demanda é tratada com método, profundidade e contexto — porque a solução jurídica não pode ser apenas correta; ela precisa ser adequada ao risco, ao tempo e ao objetivo de quem confia no nosso trabalho.
+                </p>
               </div>
             </div>
           </div>
