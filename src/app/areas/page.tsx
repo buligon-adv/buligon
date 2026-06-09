@@ -126,21 +126,54 @@ export default function AreasPage() {
           </div>
 
           <div className="max-w-6xl mx-auto">
-            <div className="border-t border-gray-100">
-              {areas.map((area, areaIdx) => (
-                <AreaAccordionItem key={area.id} area={area} index={areaIdx} />
-              ))}
-            </div>
+            {category.id === 'eleitoral' ? (
+              <div className="border-t border-gray-100 pt-10 pb-16 lg:pl-[120px] max-w-4xl">
+                <div className="prose prose-lg prose-gray max-w-none">
+                  <p className="text-gray-900 font-medium leading-relaxed mb-8">
+                    {areas[0]?.shortDescription}
+                  </p>
+                </div>
+                <div className="mt-12 flex items-center gap-6">
+                  <div className="w-12 h-px bg-bronze/30" />
+                  <a
+                    href={siteConfig.social.whatsapp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[11px] uppercase tracking-[0.3em] font-bold text-bronze hover:text-navy transition-colors"
+                  >
+                    Falar com especialista sobre este tema
+                  </a>
+                </div>
+              </div>
+            ) : (
+              <div className="border-t border-gray-100">
+                {areas.map((area, areaIdx) => (
+                  <AreaAccordionItem key={area.id} area={area} index={areaIdx} />
+                ))}
+              </div>
+            )}
           </div>
         </Section>
       ))}
 
-      {/* Frase Institucional */}
-      <Section backgroundColor="bg-gray-50">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-2xl sm:text-3xl font-sans font-light text-navy leading-snug">
-            "Atuamos com o rigor técnico exigido pela lei e a <span className="italic text-bronze font-serif font-normal">proximidade estratégica</span> necessária para grandes decisões."
-          </p>
+
+      {/* Nossa Abordagem */}
+      <Section backgroundColor="bg-navy" className="text-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-white/[0.02] to-transparent pointer-events-none" />
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-bronze/5 blur-[100px] pointer-events-none" />
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <div className="inline-block w-12 h-1 bg-bronze mb-10 mx-auto" />
+          <h2 className="text-4xl sm:text-5xl font-sans font-semibold mb-10 text-white leading-tight">
+            Excelência em cada <span className="italic text-bronze">estratégia jurídica</span>
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
+            <p className="text-gray-300 text-lg leading-relaxed border-l-2 border-bronze/30 pl-8 transition-all hover:border-bronze">
+              Cada caso exige uma análise aprofundada e uma estratégia personalizada. Por isso, combinamos expertise técnica com atenção às especificidades de cada cliente, antecipando riscos e mitigando responsabilizações antes que se tornem problemas.
+            </p>
+            <p className="text-gray-300 text-lg leading-relaxed border-l-2 border-bronze/30 pl-8 transition-all hover:border-bronze">
+              Nosso compromisso é oferecer orientação clara, transparente e focada nos melhores resultados, priorizando sempre a preservação da credibilidade e o sucesso de nossos parceiros de negócio e agentes públicos.
+            </p>
+          </div>
         </div>
       </Section>
 
