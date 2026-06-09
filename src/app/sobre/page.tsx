@@ -133,13 +133,57 @@ export default function SobrePage() {
       </Section>
 
       {/* ESTRUTURA */}
-      <Section id="estrutura" backgroundColor="bg-gray-50" className="relative overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-12 text-center mb-16">
-          <span className="text-bronze uppercase tracking-[0.4em] text-[10px] font-bold mb-4 block">Nossa Sede</span>
-          <h2 className="text-3xl sm:text-4xl font-semibold text-navy">Ambiente <span className="italic text-bronze">Moderno</span></h2>
+      <Section id="estrutura" backgroundColor="bg-white">
+        {/* Linha superior: texto + foto fixa */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center mb-12">
+          <div className="relative animate-fadeInUp">
+            <span className="text-bronze uppercase tracking-[0.3em] text-[10px] font-bold mb-6 block">Nossa Sede</span>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-sans font-semibold text-navy mb-10 leading-[1.2] tracking-tight">
+              Ambiente <span className="text-bronze italic">Moderno</span>
+            </h2>
+            <div className="space-y-6 text-gray-600 text-lg leading-relaxed font-light">
+              <p>
+                Nosso escritório foi projetado para oferecer um ambiente sofisticado e acolhedor, onde cada detalhe reflete o compromisso com a excelência. Salas de reunião equipadas, espaços privativos e infraestrutura completa para atender com conforto e discrição.
+              </p>
+            </div>
+          </div>
+
+          {/* Foto fixa da fachada */}
+          <div className="relative animate-fadeInUp delay-300">
+            <div className="absolute -top-4 -left-4 w-12 h-12 border-t border-l border-bronze/60" />
+            <div className="absolute -bottom-4 -right-4 w-12 h-12 border-b border-r border-bronze/60" />
+            <div className="relative aspect-[16/9] rounded-sm overflow-hidden border border-gray-100 shadow-[0_15px_40px_rgba(0,0,0,0.04)]">
+              <Image
+                src="/Estrutura Buligon 07.jpg"
+                alt="Fachada Buligon Advogados"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+          </div>
         </div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-12">
-          <ImageCarousel images={estruturaImages} />
+
+        {/* Galeria de fotos */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 animate-fadeInUp delay-200">
+          {[
+            { src: '/Estrutura Buligon 01.jpg', alt: 'Escritório Buligon 01' },
+            { src: '/Estrutura Buligon 02.jpg', alt: 'Escritório Buligon 02' },
+            { src: '/Estrutura Buligon 03.jpg', alt: 'Escritório Buligon 03' },
+            { src: '/Estrutura Buligon 04.jpg', alt: 'Escritório Buligon 04' },
+            { src: '/Estrutura Buligon 05.jpg', alt: 'Escritório Buligon 05' },
+            { src: '/Estrutura Buligon 06.jpg', alt: 'Escritório Buligon 06' },
+          ].map((img, i) => (
+            <div key={i} className="relative aspect-[4/3] rounded-sm overflow-hidden group">
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16vw"
+              />
+            </div>
+          ))}
         </div>
       </Section>
 
