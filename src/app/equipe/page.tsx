@@ -58,7 +58,7 @@ export default function EquipePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
               <div className="space-y-2">
-                <span className="text-bronze uppercase tracking-[0.4em] text-[10px] font-bold block">Corpo Jurídico</span>
+                <span className="text-bronze uppercase tracking-[0.4em] text-[10px] font-bold block">Equipe</span>
                 <h2 className="text-4xl sm:text-5xl font-sans font-semibold text-navy leading-tight">
                   Comprometimento com a <span className="italic text-bronze">Justiça</span> e a Excelência
                 </h2>
