@@ -10,7 +10,7 @@ interface CTAProps {
 
 export default function CTA({
   title = "Agende uma Consultoria Estratégica",
-  description = "Nossa equipe está pronta para oferecer a melhor orientação jurídica para o seu caso. Excelência, sigilo e foco em resultados.",
+  description = "Nossa equipe está pronta para oferecer a melhor orientação jurídica para o seu caso. Experiência, técnica e foco em resultados.",
   ctaText = "Falar com Especialista",
   ctaHref = "/contato",
 }: CTAProps) {

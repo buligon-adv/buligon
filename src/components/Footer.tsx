@@ -22,7 +22,7 @@ export default function Footer() {
                 quality={100}
               />
             </Link>
-            <p className="text-gray-400 text-sm leading-relaxed mb-6 max-w-sm font-light">
+            <p className="text-gray-400 text-base leading-relaxed mb-6 max-w-sm font-light">
               Consultoria jurídica estratégica com foco em Direito Público e Administrativo. Excelência técnica e compromisso com resultados sólidos.
             </p>
             <div className="flex gap-2.5">
@@ -42,11 +42,11 @@ export default function Footer() {
           {/* Navigation & Links - Span 4 combined for better balance */}
           <div className="md:col-span-4 lg:col-span-4 grid grid-cols-2 gap-4">
             <div>
-              <h4 className="font-sans font-semibold text-[11px] mb-6 text-bronze uppercase tracking-[0.2em]">Navegação</h4>
+              <h4 className="font-sans font-semibold text-xs mb-6 text-bronze uppercase tracking-[0.2em]">Navegação</h4>
               <ul className="space-y-2.5">
                 {siteConfig.navigation.map((item) => (
                   <li key={item.label}>
-                    <Link href={item.href} className="text-gray-400 hover:text-bronze transition-colors text-[13px] font-light">
+                    <Link href={item.href} className="text-gray-400 hover:text-bronze transition-colors text-sm font-light">
                       {item.label}
                     </Link>
                   </li>
@@ -54,15 +54,15 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <h4 className="font-sans font-semibold text-[11px] mb-6 text-bronze uppercase tracking-[0.2em]">Conteúdo</h4>
+              <h4 className="font-sans font-semibold text-xs mb-6 text-bronze uppercase tracking-[0.2em]">Conteúdo</h4>
               <ul className="space-y-2.5">
                 <li>
-                  <Link href="/noticias" className="text-gray-400 hover:text-bronze transition-colors text-[13px] font-light">
+                  <Link href="/noticias" className="text-gray-400 hover:text-bronze transition-colors text-sm font-light">
                     Notícias
                   </Link>
                 </li>
                 <li>
-                  <Link href="/privacidade" className="text-gray-400 hover:text-bronze transition-colors text-[13px] font-light">
+                  <Link href="/privacidade" className="text-gray-400 hover:text-bronze transition-colors text-sm font-light">
                     Privacidade
                   </Link>
                 </li>
@@ -72,22 +72,22 @@ export default function Footer() {
 
           {/* Contact - Span 4 */}
           <div className="md:col-span-4 lg:col-span-4 flex flex-col">
-            <h4 className="font-sans font-semibold text-[11px] mb-6 text-bronze uppercase tracking-[0.2em]">Contato</h4>
+            <h4 className="font-sans font-semibold text-xs mb-6 text-bronze uppercase tracking-[0.2em]">Contato</h4>
             <ul className="space-y-4">
               <li className="flex flex-col gap-1">
-                <span className="text-white/40 text-[10px] uppercase tracking-widest font-bold">Localização</span>
+                <span className="text-white/40 text-xs uppercase tracking-widest font-bold">Localização</span>
                 <span className="text-gray-400 font-light text-[13px] leading-relaxed">
                   {siteConfig.address.street}, {siteConfig.address.neighborhood}<br />
                   {siteConfig.address.city} – {siteConfig.address.state}
                 </span>
               </li>
               <li className="flex flex-col gap-1">
-                <span className="text-white/40 text-[10px] uppercase tracking-widest font-bold">Atendimento</span>
+                <span className="text-white/40 text-xs uppercase tracking-widest font-bold">Atendimento</span>
                 <div className="flex flex-col">
-                  <a href={`mailto:${siteConfig.email}`} className="text-gray-400 hover:text-bronze font-light transition-colors text-[13px]">
+                  <a href={`mailto:${siteConfig.email}`} className="text-gray-400 hover:text-bronze font-light transition-colors text-sm">
                     {siteConfig.email}
                   </a>
-                  <a href={`tel:${siteConfig.whatsapp.replace(/\D/g, '')}`} className="text-gray-400 hover:text-bronze font-light transition-colors text-[13px]">
+                  <a href={`tel:${siteConfig.whatsapp.replace(/\D/g, '')}`} className="text-gray-400 hover:text-bronze font-light transition-colors text-sm">
                     {siteConfig.phone}
                   </a>
                 </div>
