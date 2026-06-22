@@ -97,7 +97,7 @@ export default function ContatoPage() {
                 </div>
                 <div>
                   <a
-                    href="tel:+554130154161"
+                    href="tel:+554130535931"
                     className="text-bronze font-semibold hover:underline"
                   >
                     {siteConfig.phone}

@@ -9,9 +9,9 @@ export const siteConfig = {
   author: 'Buligon Advogados',
   
   // Contato
-  whatsapp: '+554130154161', 
+  whatsapp: '+554130535931',
   email: 'contato@buligonadvogados.adv.br',
-  phone: '(41) 3015-4161',
+  phone: '(41) 3053-5931',
   
   // Endereço
   address: {
@@ -25,8 +25,8 @@ export const siteConfig = {
   
   // Redes sociais
   social: {
-    whatsapp: 'https://wa.me/554130154161',
-    instagram: 'https://www.instagram.com/buligonadvogados/?hl=pt-br',
+    whatsapp: 'https://wa.me/554130535931',
+    instagram: 'https://www.instagram.com/buligon.advogados?igsh=dm9qeWtxMjhkNWlu',
     linkedin: 'https://www.linkedin.com/company/12649348',
     facebook: 'https://www.facebook.com/Buligon-Buligon-Sociedade-de-Advogados-1057613344399693/',
   },

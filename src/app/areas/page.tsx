@@ -126,32 +126,11 @@ export default function AreasPage() {
           </div>
 
           <div className="max-w-6xl mx-auto">
-            {category.id === 'eleitoral' ? (
-              <div className="border-t border-gray-100 pt-10 pb-16 lg:pl-[120px] max-w-4xl">
-                <div className="prose prose-lg prose-gray max-w-none">
-                  <p className="text-gray-900 font-medium leading-relaxed mb-8">
-                    {areas[0]?.shortDescription}
-                  </p>
-                </div>
-                <div className="mt-12 flex items-center gap-6">
-                  <div className="w-12 h-px bg-bronze/30" />
-                  <a
-                    href={siteConfig.social.whatsapp}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[11px] uppercase tracking-[0.3em] font-bold text-bronze hover:text-navy transition-colors"
-                  >
-                    Falar com especialista sobre este tema
-                  </a>
-                </div>
-              </div>
-            ) : (
-              <div className="border-t border-gray-100">
-                {areas.map((area, areaIdx) => (
-                  <AreaAccordionItem key={area.id} area={area} index={areaIdx} />
-                ))}
-              </div>
-            )}
+            <div className="border-t border-gray-100">
+              {areas.map((area, areaIdx) => (
+                <AreaAccordionItem key={area.id} area={area} index={areaIdx} />
+              ))}
+            </div>
           </div>
         </Section>
       ))}
