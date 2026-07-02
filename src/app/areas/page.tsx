@@ -17,7 +17,7 @@ function AreaAccordionItem({ area, index }: { area: PracticeArea, index: number 
     >
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full py-10 flex items-center justify-between text-left group"
+        className="w-full py-6 flex items-center justify-between text-left group"
       >
         <div className="flex items-center gap-8 lg:gap-16">
           <span className="text-[14px] font-sans font-medium text-bronze/40 tracking-widest hidden sm:block">
@@ -35,7 +35,7 @@ function AreaAccordionItem({ area, index }: { area: PracticeArea, index: number 
       </button>
 
       <div 
-        className={`overflow-hidden transition-all duration-700 ease-in-out ${isOpen ? 'max-h-[3000px] opacity-100 pb-16' : 'max-h-0 opacity-0'}`}
+        className={`overflow-hidden transition-all duration-700 ease-in-out ${isOpen ? 'max-h-[3000px] opacity-100 pb-8' : 'max-h-0 opacity-0'}`}
       >
         <div className="lg:pl-[120px] max-w-4xl">
           <div className="prose prose-lg prose-gray max-w-none">
@@ -99,9 +99,9 @@ export default function AreasPage() {
           key={category.id} 
           id={category.id}
           backgroundColor="bg-white"
-          className={idx === 0 ? "!pt-16 lg:!pt-24" : "pt-24 lg:pt-32"}
+          className={idx === 0 ? "!pt-8 lg:!pt-12" : "pt-8 lg:pt-12"}
         >
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 mb-16 lg:mb-24">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 mb-10 lg:mb-14">
             <div className="lg:col-span-5">
               <span className="text-bronze uppercase tracking-[0.5em] text-[11px] font-bold mb-6 block">
                 {label}

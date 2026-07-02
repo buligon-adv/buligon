@@ -30,7 +30,7 @@ export default function Header() {
   const navigation = siteConfig.navigation as NavItem[];
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-md' : 'bg-white/95 shadow-sm'}`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-md' : 'bg-white/95'}`}>
       {/* Faixa Superior (Top Bar) */}
       <div className={`bg-bronze text-white text-[10px] sm:text-[11px] font-semibold tracking-[0.1em] border-b border-white/10 hidden md:block transition-all duration-500 ease-in-out origin-top overflow-hidden ${scrolled ? 'max-h-0 opacity-0 py-0 border-none' : 'max-h-[40px] py-2'}`}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-12 flex justify-between items-center">

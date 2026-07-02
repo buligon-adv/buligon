@@ -23,7 +23,7 @@ export default function Section({
     full: 'max-w-none',
   }[containerSize];
 
-  const paddingClass = noPadding ? 'py-0 px-0' : 'py-24 sm:py-32 px-4 sm:px-6 lg:px-12';
+  const paddingClass = noPadding ? 'py-0 px-0' : 'py-14 sm:py-20 px-4 sm:px-6 lg:px-12';
 
   return (
     <section className={`${paddingClass} ${backgroundColor} ${className}`} id={id}>
