@@ -23,12 +23,12 @@ export default function Hero({
   size = 'compact',
   overlayOpacity,
 }: HeroProps) {
-  const heightClass = size === 'full' ? 'min-h-[85vh] lg:min-h-[90vh]' : 'min-h-[40vh] lg:min-h-[45vh]';
+  const heightClass = size === 'full' ? 'min-h-[85vh] lg:min-h-[90vh]' : 'h-[52vh]';
   const finalOverlay = overlayOpacity || 'bg-navy/80';
   
   return (
     <section
-      className={`relative ${heightClass} flex items-center overflow-hidden pt-24 pb-12 md:pt-36 lg:pb-16`}
+      className={`relative ${heightClass} flex items-center overflow-hidden pt-32 pb-12 md:pt-44 lg:pb-16`}
     >
       <div className="absolute inset-0">
         {backgroundImage && (

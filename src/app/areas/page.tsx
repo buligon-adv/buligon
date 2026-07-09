@@ -86,13 +86,6 @@ export default function AreasPage() {
         overlayOpacity="bg-navy/60"
       />
 
-      {/* Navegação Rápida Sutil */}
-      <div className="bg-white border-b border-gray-100 hidden lg:block sticky top-24 z-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-12">
-
-        </div>
-      </div>
-
       {/* Categorias e Conteúdo Editorial */}
       {categoryData.map(({ category, areas, label }, idx) => (
         <Section 

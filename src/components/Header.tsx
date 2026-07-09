@@ -37,7 +37,7 @@ export default function Header() {
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2">
               <Clock className="w-3 h-3 text-white/90" />
-              <span>SEG - SEX: 09:00 - 18:00</span>
+              <span>SEG - SEX: 09h - 18h</span>
             </div>
           </div>
           <div className="flex items-center gap-6">

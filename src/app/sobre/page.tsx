@@ -7,6 +7,7 @@ import CTA from '@/components/CTA';
 import ImageCarousel from '@/components/ImageCarousel';
 import { siteConfig } from '@/lib/site';
 import { generateMetadata } from '@/lib/seo';
+import TeamAccordion from '@/components/TeamAccordion';
 
 export const metadata: Metadata = generateMetadata({
   title: 'O Escritório',
@@ -15,6 +16,7 @@ export const metadata: Metadata = generateMetadata({
 
 interface TeamMember {
   name: string;
+  oab: string;
   role: string;
   bio: string;
   specialties: string[];
@@ -24,24 +26,27 @@ interface TeamMember {
 const teamMembers: TeamMember[] = [
   {
     name: 'Dr. Vinícius Buligon',
+    oab: 'OAB/PR 36.636',
     role: 'Advogado Sócio-Fundador',
-    bio: 'Especialista em Direito Eleitoral e Administrativo, com foco em defesas perante os Tribunais Superiores e órgãos de controle.',
-    specialties: ['Direito Eleitoral', 'Controle Externo', 'Pessoa Física'],
-    image: '/Dr.%20Vin%C3%ADcius%20Buligon.jpg'
+    bio: 'Advogado com atuação há mais de 23 anos nas áreas de Direito Administrativo, Constitucional, Cível, Empresarial e Eleitoral, no segmento consultivo e contencioso, com destaque em recursos aos Tribunais Superiores.\n\nNo Direito Público, atua em questões relacionadas ao controle externo da Administração Pública, incluindo processos perante Tribunais de Contas, contratos administrativos e ações de responsabilização de agentes públicos e particulares, especialmente em ações de improbidade administrativa e ressarcimento.\n\nNo Direito Privado, assessora pessoas e empresas na proteção de patrimônio, na elaboração de contratos e na resolução de conflitos, atuando tanto na prevenção de riscos jurídicos quanto na defesa de interesses em litígios judiciais e negociações extrajudiciais.\n\nAtua em demandas consultivas e contenciosas do Direito Eleitoral, com ênfase no processo de prestação de contas eleitorais, assessorando candidatos, partidos políticos e agentes públicos na regularidade dos procedimentos perante a Justiça Eleitoral.\n\nFoi consultor jurídico de Municípios e Câmaras Legislativas e desempenhou atividades de assessor jurídico junto à Coordenadoria de Serviços Especiais, Comissão de Orçamento e Primeira Secretaria da Assembleia Legislativa do Estado do Paraná.\n\nEspecialista em Direito Constitucional pela Academia Brasileira de Direito Constitucional (ABDConst) e em Direito Administrativo pelo Instituto Romeu Felipe Bacellar.',
+    specialties: ['Direito Administrativo', 'Direito Eleitoral', 'Controle Externo', 'Improbidade Administrativa'],
+    image: '/Dr.%20Vin%C3%ADcius.jpeg'
   },
   {
     name: 'Dr. Diego Buligon',
+    oab: 'OAB/PR 41.074',
     role: 'Advogado Sócio-Fundador',
-    bio: 'Pós-Doutor em Direito pela Universidade de Bolonha, Itália. Especialista em Direito Administrativo e Constitucional.',
-    specialties: ['Direito Público', 'Administrativo', 'Gestão Municipal'],
+    bio: 'Advogado com mais de 20 anos de experiência, atua no contencioso e no consultivo nas áreas de Direito Administrativo, Tributário e Eleitoral. Sua prática abrange ações de improbidade administrativa e ressarcimento, assessoria em licitações e contratos, e representação perante órgãos de controle.\n\nNo Direito Eleitoral, atua em campanhas desde 2008, com assessoria jurídica que vai da pré-campanha ao contencioso eleitoral, com ênfase em ações de cassação de mandato e representações eleitorais.\n\nSua trajetória inclui atuação como Assessor Técnico na Câmara dos Deputados, Procurador Municipal e Diretor-Geral em Secretaria de Estado, além de membro de conselho em entidade da administração indireta estadual, experiência que lhe confere visão estratégica integrada entre o setor público e a advocacia privada.\n\nMestre em Planejamento e Governança Pública pela Universidade Tecnológica Federal do Paraná (UTFPR), Especialista em Direito Administrativo pelo Instituto Romeu Felipe Bacellar e em Direito e Processo Tributário pela Academia Brasileira de Direito Constitucional (ABDConst). Atualmente, é membro do Instituto Paranaense de Direito Eleitoral (IPRADE) e da Comissão de Direito Eleitoral da OAB/PR.',
+    specialties: ['Direito Administrativo', 'Direito Tributário', 'Direito Eleitoral', 'Licitações'],
     image: '/Dr.%20Diego%20Buligon.jpg'
   },
   {
-    name: 'Dr. Afonso Ricardo',
+    name: 'Dr. Afonso Ricardo Ribeiro',
+    oab: 'OAB/PR 86.779',
     role: 'Advogado Associado',
-    bio: 'Especialista em Direito Empresarial e Civil, conduzindo resoluções complexas de conflitos corporativos e contratuais.',
-    specialties: ['Direito Empresarial', 'Contencioso Cível', 'Recuperação Judicial'],
-    image: '/Dr.%20Afonso%20Ricardo.jpg'
+    bio: 'Advogado com atuação no contencioso cível e empresarial, com experiência em Direito Administrativo, incluindo demandas judiciais e administrativas envolvendo a Administração Pública e processos de controle externo perante os Tribunais de Contas.\n\nNo Direito Eleitoral, atua em representações eleitorais e ações de investigação judicial eleitoral (AIJE), com foco em abuso de poder econômico e político, além de consultoria preventiva a candidatos e partidos.\n\nDesempenhou as funções de Subprocurador e Diretor Jurídico Municipal e Assessor na Assembleia Legislativa do Estado do Paraná.\n\nEspecialista em Direito Constitucional pela Academia Brasileira de Direito Constitucional (ABDConst) e em Direito Tributário pela Faculdade IBMEC São Paulo. Atualmente é membro do Instituto Paranaense de Direito Eleitoral (IPRADE) e da Comissão de Direito Eleitoral da OAB/PR.',
+    specialties: ['Contencioso Cível', 'Direito Empresarial', 'Direito Eleitoral', 'Controle Externo'],
+    image: '/Dr.%20Afonso.jpeg'
   },
 ];
 
@@ -199,53 +204,7 @@ export default function SobrePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
-            {teamMembers.map((member, index) => (
-              <div key={index} className="group">
-                <div className="relative mb-10 overflow-visible">
-                  <div className="absolute -top-3 -right-3 w-20 h-20 border-t-2 border-r-2 border-bronze/20 z-0" />
-                  <div className="relative aspect-[4/5] overflow-hidden bg-gray-100 border border-gray-100 shadow-xl transition-all duration-700 group-hover:shadow-2xl group-hover:-translate-y-2 z-10">
-                    {member.image ? (
-                      <img 
-                        src={member.image} 
-                        alt={member.name}
-                        className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110"
-                      />
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center bg-navy text-white text-4xl font-light">
-                        {member.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
-                      </div>
-                    )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="absolute bottom-0 left-0 w-full h-1 bg-bronze scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  <div className="space-y-1">
-                    <h3 className="text-2xl font-semibold text-navy">
-                      {member.name}
-                    </h3>
-                    <p className="text-bronze uppercase tracking-[0.2em] text-[10px] font-bold">{member.role}</p>
-                  </div>
-                  <div className="w-12 h-px bg-bronze/30 group-hover:w-full transition-all duration-700" />
-                  <p className="text-gray-500 text-sm leading-relaxed font-light line-clamp-4">
-                    {member.bio}
-                  </p>
-                  <div className="flex flex-wrap gap-2 pt-2">
-                    {member.specialties.map((specialty, idx) => (
-                      <span
-                        key={idx}
-                        className="px-4 py-2 text-[8px] uppercase tracking-[0.15em] font-bold bg-white border border-gray-100 text-gray-400 group-hover:text-navy group-hover:border-bronze/20 transition-all shadow-sm"
-                      >
-                        {specialty}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <TeamAccordion members={teamMembers} />
         </div>
       </Section>
 

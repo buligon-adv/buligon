@@ -12,6 +12,7 @@ export const metadata: Metadata = generateMetadata({
 
 interface TeamMember {
   name: string;
+  oab: string;
   role: string;
   bio: string;
   specialties: string[];
@@ -21,24 +22,27 @@ interface TeamMember {
 const teamMembers: TeamMember[] = [
   {
     name: 'Dr. Vinícius Buligon',
+    oab: 'OAB/PR 36.636',
     role: 'Advogado Sócio-Fundador',
-    bio: 'Especialista em Direito Eleitoral e Administrativo, com foco em defesas perante os Tribunais Superiores e órgãos de controle.',
-    specialties: ['Direito Eleitoral', 'Controle Externo', 'Pessoa Física'],
-    image: '/Dr.%20Vin%C3%ADcius%20Buligon.jpg'
+    bio: 'Advogado com atuação há mais de 23 anos nas áreas de Direito Administrativo, Constitucional, Cível, Empresarial e Eleitoral, no segmento consultivo e contencioso, com destaque em recursos aos Tribunais Superiores. No Direito Público, atua em questões relacionadas ao controle externo da Administração Pública, incluindo processos perante Tribunais de Contas, contratos administrativos e ações de responsabilização de agentes públicos e particulares, especialmente em ações de improbidade administrativa e ressarcimento. No Direito Privado, assessora pessoas e empresas na proteção de patrimônio, na elaboração de contratos e na resolução de conflitos. Atua no Direito Eleitoral com ênfase no processo de prestação de contas eleitorais, assessorando candidatos, partidos políticos e agentes públicos perante a Justiça Eleitoral. Foi consultor jurídico de Municípios e Câmaras Legislativas, e assessor jurídico junto à Coordenadoria de Serviços Especiais, Comissão de Orçamento e Primeira Secretaria da Assembleia Legislativa do Estado do Paraná. Especialista em Direito Constitucional pela Academia Brasileira de Direito Constitucional (ABDConst) e em Direito Administrativo pelo Instituto Romeu Felipe Bacellar.',
+    specialties: ['Direito Administrativo', 'Direito Eleitoral', 'Controle Externo', 'Improbidade Administrativa'],
+    image: '/Dr.%20Vin%C3%ADcius.jpeg'
   },
   {
     name: 'Dr. Diego Buligon',
+    oab: 'OAB/PR 41.074',
     role: 'Advogado Sócio-Fundador',
-    bio: 'Pós-Doutor em Direito pela Universidade de Bolonha, Itália. Especialista em Direito Administrativo e Constitucional.',
-    specialties: ['Direito Público', 'Administrativo', 'Gestão Municipal'],
+    bio: 'Advogado com mais de 20 anos de experiência, atua no contencioso e no consultivo nas áreas de Direito Administrativo, Tributário e Eleitoral. Sua prática abrange ações de improbidade administrativa e ressarcimento, assessoria em licitações e contratos, e representação perante órgãos de controle. No Direito Eleitoral, atua em campanhas desde 2008, com assessoria jurídica que vai da pré-campanha ao contencioso eleitoral, com ênfase em ações de cassação de mandato e representações eleitorais. Sua trajetória inclui atuação como Assessor Técnico na Câmara dos Deputados, Procurador Municipal e Diretor-Geral em Secretaria de Estado. Mestre em Planejamento e Governança Pública pela UTFPR, Especialista em Direito Administrativo pelo Instituto Romeu Felipe Bacellar e em Direito e Processo Tributário pela ABDConst. Membro do Instituto Paranaense de Direito Eleitoral (IPRADE) e da Comissão de Direito Eleitoral da OAB/PR.',
+    specialties: ['Direito Administrativo', 'Direito Tributário', 'Direito Eleitoral', 'Licitações'],
     image: '/Dr.%20Diego%20Buligon.jpg'
   },
   {
-    name: 'Dr. Afonso Ricardo',
+    name: 'Dr. Afonso Ricardo Ribeiro',
+    oab: 'OAB/PR 86.779',
     role: 'Advogado Associado',
-    bio: 'Especialista em Direito Empresarial e Civil, conduzindo resoluções complexas de conflitos corporativos e contratuais.',
-    specialties: ['Direito Empresarial', 'Contencioso Cível', 'Recuperação Judicial'],
-    image: '/Dr.%20Afonso%20Ricardo.jpg'
+    bio: 'Advogado com atuação no contencioso cível e empresarial, com experiência em Direito Administrativo, incluindo demandas judiciais e administrativas envolvendo a Administração Pública e processos de controle externo perante os Tribunais de Contas. No Direito Eleitoral, atua em representações eleitorais e ações de investigação judicial eleitoral (AIJE), com foco em abuso de poder econômico e político, além de consultoria preventiva a candidatos e partidos. Desempenhou as funções de Subprocurador e Diretor Jurídico Municipal e Assessor na Assembleia Legislativa do Estado do Paraná. Especialista em Direito Constitucional pela ABDConst e em Direito Tributário pela Faculdade IBMEC São Paulo. Membro do IPRADE e da Comissão de Direito Eleitoral da OAB/PR.',
+    specialties: ['Contencioso Cível', 'Direito Empresarial', 'Direito Eleitoral', 'Controle Externo'],
+    image: '/Dr.%20Afonso.jpeg'
   },
 ];
 
@@ -121,11 +125,12 @@ export default function EquipePage() {
                     {member.name}
                   </h3>
                   <p className="text-bronze uppercase tracking-[0.2em] text-[10px] font-bold">{member.role}</p>
+                  <p className="text-gray-400 text-[10px] tracking-widest uppercase">{member.oab}</p>
                 </div>
                 
                 <div className="w-12 h-px bg-bronze/30 group-hover:w-full transition-all duration-700" />
                 
-                <p className="text-gray-500 text-sm leading-relaxed font-light line-clamp-4">
+                <p className="text-gray-500 text-sm leading-relaxed font-light">
                   {member.bio}
                 </p>
 

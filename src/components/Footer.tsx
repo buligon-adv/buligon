@@ -36,6 +36,9 @@ export default function Footer() {
                <a href={siteConfig.social.linkedin} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center hover:bg-bronze hover:border-bronze transition-all text-white/50 hover:text-white group" title="LinkedIn">
                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/></svg>
                </a>
+               <a href={siteConfig.social.facebook} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center hover:bg-bronze hover:border-bronze transition-all text-white/50 hover:text-white group" title="Facebook">
+                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+               </a>
             </div>
           </div>
 
@@ -117,9 +120,9 @@ export default function Footer() {
                  <Image 
                    src="/Logo UPDO Branca.svg" 
                    alt="UPDO" 
-                   width={75} 
-                   height={22} 
-                   className="h-4 w-auto"
+                   width={100}
+                   height={30}
+                   className="h-6 w-auto"
                  />
                </a>
              </div>
