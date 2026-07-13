@@ -189,21 +189,10 @@ export default function SobrePage() {
         </div>
       </Section>
 
-      {/* EQUIPE MIGRADA - Novo Bloco */}
+      {/* EQUIPE */}
       <Section id="equipe">
         <div className="container mx-auto px-4 sm:px-6 lg:px-12">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
-            <div className="max-w-2xl space-y-4">
-              <span className="text-bronze uppercase tracking-[0.4em] text-[10px] font-bold block">Equipe</span>
-              <h2 className="text-4xl sm:text-5xl font-sans font-semibold text-navy leading-tight">
-                Comprometimento com a <span className="italic text-bronze">Justiça</span> e a Excelência
-              </h2>
-            </div>
-            <p className="text-gray-500 text-base max-w-md font-light border-l border-bronze/30 pl-6 mb-2">
-              A união entre solidez acadêmica e vasta experiência prática define nossa abordagem técnica e personalizada.
-            </p>
-          </div>
-
+          <span className="text-bronze uppercase tracking-[0.4em] text-[10px] font-bold block mb-10">Equipe</span>
           <TeamAccordion members={teamMembers} />
         </div>
       </Section>
