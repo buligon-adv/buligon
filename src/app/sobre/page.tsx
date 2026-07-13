@@ -43,7 +43,7 @@ const teamMembers: TeamMember[] = [
   {
     name: 'Dr. Afonso Ricardo Ribeiro',
     oab: 'OAB/PR 86.779',
-    role: 'Advogado Associado',
+    role: 'Advogado',
     bio: 'Advogado com atuação no contencioso cível e empresarial, com experiência em Direito Administrativo, incluindo demandas judiciais e administrativas envolvendo a Administração Pública e processos de controle externo perante os Tribunais de Contas.\n\nNo Direito Eleitoral, atua em representações eleitorais e ações de investigação judicial eleitoral (AIJE), com foco em abuso de poder econômico e político, além de consultoria preventiva a candidatos e partidos.\n\nDesempenhou as funções de Subprocurador e Diretor Jurídico Municipal e Assessor na Assembleia Legislativa do Estado do Paraná.\n\nEspecialista em Direito Constitucional pela Academia Brasileira de Direito Constitucional (ABDConst) e em Direito Tributário pela Faculdade IBMEC São Paulo. Atualmente é membro do Instituto Paranaense de Direito Eleitoral (IPRADE) e da Comissão de Direito Eleitoral da OAB/PR.',
     specialties: ['Contencioso Cível', 'Direito Empresarial', 'Direito Eleitoral', 'Controle Externo'],
     image: '/Dr.%20Afonso.jpeg'
