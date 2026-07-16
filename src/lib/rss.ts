@@ -1,17 +1,20 @@
 import { Post, PostCategory } from './posts';
 
-const FEED_URL = 'https://blog.buligonadvogados.adv.br/feed/';
+const API_URL = 'https://blog.buligonadvogados.adv.br/wp-json/wp/v2/posts';
 const REVALIDATE_SECONDS = 3600;
 
-function extractCdata(xml: string, tag: string): string {
-  const match = xml.match(new RegExp(`<${tag}[^>]*>(?:<!\\[CDATA\\[([\\s\\S]*?)\\]\\]>|([^<]*))<\\/${tag}>`, 'i'));
-  if (!match) return '';
-  return (match[1] ?? match[2] ?? '').trim();
-}
-
-function extractAttr(xml: string, tag: string, attr: string): string {
-  const match = xml.match(new RegExp(`<${tag}[^>]*\\s${attr}=["']([^"']+)["'][^>]*>`, 'i'));
-  return match ? match[1] : '';
+interface WpPost {
+  id: number;
+  slug: string;
+  link: string;
+  date: string;
+  title: { rendered: string };
+  excerpt: { rendered: string };
+  content: { rendered: string };
+  _embedded?: {
+    'wp:featuredmedia'?: Array<{ source_url?: string }>;
+    'wp:term'?: Array<Array<{ name: string }>>;
+  };
 }
 
 function stripHtml(html: string): string {
@@ -23,75 +26,58 @@ function estimateReadingTime(text: string): number {
   return Math.max(1, Math.round(words / 200));
 }
 
-function slugFromUrl(url: string): string {
-  return url.replace(/\/$/, '').split('/').pop() ?? url;
-}
-
-function mapCategory(wpCategory: string): PostCategory {
-  const cat = wpCategory.toLowerCase();
+function mapCategory(name: string): PostCategory {
+  const cat = name.toLowerCase();
   if (cat.includes('eleitoral')) return 'direito-eleitoral';
   if (cat.includes('licitaç') || cat.includes('licitac')) return 'licitacoes';
   if (cat.includes('improbidade')) return 'improbidade';
   if (cat.includes('tribunal') || cat.includes('contas')) return 'tribunais-contas';
   if (cat.includes('empresa')) return 'direito-empresarial';
-  if (cat.includes('público') || cat.includes('publico') || cat.includes('administrativo')) return 'direito-publico';
+  if (cat.includes('público') || cat.includes('publico') || cat.includes('administrativo') || cat.includes('municipal')) return 'direito-publico';
   return 'institucional';
 }
 
-function parseItem(itemXml: string, index: number): Post {
-  const title = stripHtml(extractCdata(itemXml, 'title'));
-  const link = extractCdata(itemXml, 'link') || itemXml.match(/<link>([^<]+)<\/link>/)?.[1]?.trim() || '';
-  const pubDate = extractCdata(itemXml, 'pubDate');
-  const descriptionHtml = extractCdata(itemXml, 'description');
-  const contentHtml = extractCdata(itemXml, 'content:encoded') || descriptionHtml;
+function wpPostToPost(wp: WpPost, index: number): Post {
+  const title = stripHtml(wp.title.rendered);
+  const excerpt = stripHtml(wp.excerpt.rendered).slice(0, 300).trim();
+  const contentText = stripHtml(wp.content.rendered);
 
-  const excerpt = stripHtml(descriptionHtml).slice(0, 300).trim();
+  const coverImage = wp._embedded?.['wp:featuredmedia']?.[0]?.source_url;
 
-  // Featured image: try media:content, then enclosure, then first img in content
-  let coverImage: string | undefined;
-  const mediaContent = extractAttr(itemXml, 'media:content', 'url');
-  const enclosure = extractAttr(itemXml, 'enclosure', 'url');
-  const imgInContent = contentHtml.match(/<img[^>]+src=["']([^"']+)["']/i)?.[1];
-  coverImage = mediaContent || enclosure || imgInContent || undefined;
-
-  const categoryMatch = itemXml.match(/<category(?:[^>]*)>(?:<!\[CDATA\[)?([^\]<]+)(?:\]\]>)?<\/category>/i);
-  const wpCategory = categoryMatch ? categoryMatch[1].trim() : '';
-
-  const publishedAt = pubDate ? new Date(pubDate).toISOString().split('T')[0] : new Date().toISOString().split('T')[0];
+  const categories = wp._embedded?.['wp:term']?.[0] ?? [];
+  const firstCategory = categories[0]?.name ?? '';
 
   return {
-    id: String(index + 1),
-    slug: slugFromUrl(link),
+    id: String(wp.id),
+    slug: wp.slug,
     title,
     excerpt,
-    content: contentHtml,
+    content: wp.content.rendered,
     coverImage,
     author: { name: 'Buligon Advogados' },
-    category: mapCategory(wpCategory),
-    tags: wpCategory ? [wpCategory] : [],
-    publishedAt,
-    readingTime: estimateReadingTime(stripHtml(contentHtml) || excerpt),
+    category: mapCategory(firstCategory),
+    tags: categories.map((c) => c.name),
+    publishedAt: wp.date.split('T')[0],
+    readingTime: estimateReadingTime(contentText),
     featured: index === 0,
     status: 'published',
-    url: link,
+    url: wp.link,
   };
 }
 
 export async function getRssPosts(limit = 3): Promise<Post[]> {
   try {
-    const res = await fetch(FEED_URL, {
+    const res = await fetch(`${API_URL}?per_page=${limit}&_embed=true`, {
       next: { revalidate: REVALIDATE_SECONDS },
       headers: { 'User-Agent': 'Buligon-Site/1.0' },
     });
 
-    if (!res.ok) throw new Error(`RSS fetch failed: ${res.status}`);
+    if (!res.ok) throw new Error(`WP API fetch failed: ${res.status}`);
 
-    const xml = await res.text();
-    const items = xml.match(/<item[\s>][\s\S]*?<\/item>/gi) ?? [];
-
-    return items.slice(0, limit).map((item, i) => parseItem(item, i));
+    const data: WpPost[] = await res.json();
+    return data.map((wp, i) => wpPostToPost(wp, i));
   } catch (err) {
-    console.error('Failed to fetch RSS feed:', err);
+    console.error('Failed to fetch blog posts:', err);
     return [];
   }
 }
