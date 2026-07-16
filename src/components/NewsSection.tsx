@@ -45,8 +45,6 @@ export function NewsCard({ post }: NewsCardProps) {
               year: 'numeric'
             })}
           </time>
-          <span className="w-1 h-1 rounded-full bg-bronze/30" />
-          <span>{post.readingTime} min de leitura</span>
         </div>
         
         <h3 className="text-xl font-sans font-semibold text-navy group-hover:text-bronze transition-colors mb-4 leading-tight">
