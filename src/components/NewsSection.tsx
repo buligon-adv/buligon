@@ -7,9 +7,13 @@ interface NewsCardProps {
 }
 
 export function NewsCard({ post }: NewsCardProps) {
+  const href = post.url ?? `/noticias/${post.slug}`;
+  const isExternal = !!post.url;
   return (
-    <Link 
-      href={`/noticias/${post.slug}`}
+    <Link
+      href={href}
+      target={isExternal ? '_blank' : undefined}
+      rel={isExternal ? 'noopener noreferrer' : undefined}
       className="group flex flex-col h-full bg-white border border-gray-100 hover:border-bronze transition-all duration-300 shadow-sm hover:shadow-xl"
     >
       <div className="relative h-56 w-full overflow-hidden">

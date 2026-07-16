@@ -22,6 +22,7 @@ export interface Post {
   readingTime: number; // em minutos
   featured?: boolean;
   status: 'draft' | 'published' | 'scheduled';
+  url?: string; // external URL (e.g. from RSS feed)
 }
 
 export type PostCategory = 

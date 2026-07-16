@@ -12,6 +12,7 @@ import StatCounter from '@/components/StatCounter';
 import { siteConfig } from '@/lib/site';
 import { getFeaturedAreas } from '@/lib/areas';
 import { posts } from '@/lib/posts';
+import { getRssPosts } from '@/lib/rss';
 import { generateMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = generateMetadata({
@@ -42,8 +43,10 @@ const faqItems = [
   },
 ];
 
-export default function Home() {
+export default async function Home() {
   const featuredAreas = getFeaturedAreas().slice(0, 4);
+  const rssPosts = await getRssPosts(3);
+  const newsPosts = rssPosts.length > 0 ? rssPosts : posts.slice(0, 3);
 
   return (
     <div className="overflow-hidden">
@@ -218,8 +221,10 @@ export default function Home() {
               Notícias
             </h2>
           </div>
-          <a 
-            href="/noticias" 
+          <a
+            href="https://blog.buligonadvogados.adv.br/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group flex items-center gap-3 text-navy font-bold text-[10px] uppercase tracking-widest hover:text-bronze transition-colors"
           >
             Ver todas as publicações
@@ -227,7 +232,7 @@ export default function Home() {
           </a>
         </div>
 
-        <NewsSection posts={posts.slice(0, 3)} />
+        <NewsSection posts={newsPosts} />
       </Section>
 
       {/* CTA final */}

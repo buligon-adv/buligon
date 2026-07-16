@@ -42,7 +42,7 @@ export const siteConfig = {
     { label: 'Home', href: '/' },
     { label: 'O Escritório', href: '/sobre' },
     { label: 'Áreas de Atuação', href: '/areas' },
-    { label: 'Notícias', href: '/noticias' },
+    { label: 'Notícias', href: 'https://blog.buligonadvogados.adv.br/' },
     { label: 'Contato', href: '/contato' },
   ],
 };

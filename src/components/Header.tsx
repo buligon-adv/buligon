@@ -122,6 +122,8 @@ export default function Header() {
               <div key={item.href} className="relative group">
                 <Link
                   href={item.href}
+                  target={item.href.startsWith('http') ? '_blank' : undefined}
+                  rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   className="text-navy hover:text-bronze font-semibold text-[11px] uppercase tracking-[0.18em] transition-all relative flex items-center gap-1 whitespace-nowrap"
                 >
                   {item.label}
@@ -174,6 +176,8 @@ export default function Header() {
                 <div className="flex items-center justify-between">
                   <Link
                     href={item.href}
+                    target={item.href.startsWith('http') ? '_blank' : undefined}
+                    rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                     className="flex-1 text-navy hover:text-bronze font-semibold text-[12px] uppercase tracking-wider transition-colors py-3 px-2"
                     onClick={() => setMobileMenuOpen(false)}
                   >

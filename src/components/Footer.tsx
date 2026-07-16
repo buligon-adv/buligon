@@ -60,7 +60,7 @@ export default function Footer() {
               <h4 className="font-sans font-semibold text-xs mb-6 text-bronze uppercase tracking-[0.2em]">Conteúdo</h4>
               <ul className="space-y-2.5">
                 <li>
-                  <Link href="/noticias" className="text-gray-400 hover:text-bronze transition-colors text-sm font-light">
+                  <Link href="https://blog.buligonadvogados.adv.br/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-bronze transition-colors text-sm font-light">
                     Notícias
                   </Link>
                 </li>
