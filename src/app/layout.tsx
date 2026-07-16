@@ -65,7 +65,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/Logo Buligon Favicon.png', sizes: 'any' },
+      { url: "/Favicon%20Buligon.png", sizes: "512x512", type: "image/png" },
     ],
   },
 };

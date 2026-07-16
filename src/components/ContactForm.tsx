@@ -1,72 +1,103 @@
-'use client';
+"use client";
 
-import { useState, FormEvent } from 'react';
+import { FormEvent, useState } from "react";
 
 interface ContactFormData {
   name: string;
   email: string;
   phone: string;
   message: string;
+  website: string;
 }
 
+const initialFormData: ContactFormData = {
+  name: "",
+  email: "",
+  phone: "",
+  message: "",
+  website: "",
+};
+
 export default function ContactForm() {
-  const [formData, setFormData] = useState<ContactFormData>({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
-  });
+  const [formData, setFormData] = useState<ContactFormData>(initialFormData);
   const [submitted, setSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    const { name, value } = event.target;
+    setFormData((previous) => ({ ...previous, [name]: value }));
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     setIsLoading(true);
+    setErrorMessage("");
 
-    // Validação básica
-    if (!formData.name || !formData.email || !formData.phone || !formData.message) {
-      alert('Por favor, preencha todos os campos.');
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const result = (await response.json()) as { error?: string };
+
+      if (!response.ok) {
+        throw new Error(result.error || "Não foi possível enviar sua mensagem.");
+      }
+
+      setFormData(initialFormData);
+      setSubmitted(true);
+    } catch (error) {
+      setErrorMessage(
+        error instanceof Error
+          ? error.message
+          : "Não foi possível enviar sua mensagem. Tente novamente.",
+      );
+    } finally {
       setIsLoading(false);
-      return;
     }
-
-    // Simular envio via mailto
-    const mailtoLink = `mailto:contato@buligonadvogados.adv.br?subject=Novo Contato de ${formData.name}&body=Nome: ${formData.name}%0AEmail: ${formData.email}%0ATelefone: ${formData.phone}%0A%0AMensagem:%0A${formData.message}`;
-    
-    window.location.href = mailtoLink;
-    setSubmitted(true);
-    setIsLoading(false);
-
-    // Reset form after 2 seconds
-    setTimeout(() => {
-      setFormData({ name: '', email: '', phone: '', message: '' });
-      setSubmitted(false);
-    }, 2000);
   };
 
   if (submitted) {
     return (
-      <div className="p-6 bg-green-50 border border-green-200 text-center">
-        <p className="text-green-800 font-semibold">Obrigado por sua mensagem!</p>
-        <p className="text-green-700 text-sm mt-2">
-          Em breve entraremos em contato com você.
+      <div className="border border-green-200 bg-green-50 p-6 text-center" role="status">
+        <p className="font-semibold text-green-800">Obrigado por sua mensagem!</p>
+        <p className="mt-2 text-sm text-green-700">
+          Recebemos seus dados e entraremos em contato em breve.
         </p>
+        <button
+          type="button"
+          onClick={() => setSubmitted(false)}
+          className="mt-5 text-xs font-bold uppercase tracking-widest text-navy underline underline-offset-4"
+        >
+          Enviar outra mensagem
+        </button>
       </div>
     );
   }
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div className="absolute -left-[9999px]" aria-hidden="true">
+        <label htmlFor="website">Não preencha este campo</label>
+        <input
+          id="website"
+          name="website"
+          type="text"
+          value={formData.website}
+          onChange={handleChange}
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
+
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         <div>
-          <label htmlFor="name" className="block text-sm font-semibold text-gray-900 mb-2">
+          <label htmlFor="name" className="mb-2 block text-sm font-semibold text-gray-900">
             Nome completo
           </label>
           <input
@@ -75,14 +106,15 @@ export default function ContactForm() {
             type="text"
             value={formData.name}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 focus:ring-2 focus:ring-navy focus:border-transparent outline-none transition-all"
-            style={{ '--tw-ring-color': 'var(--color-navy)' } as any}
+            maxLength={120}
+            autoComplete="name"
+            className="w-full border border-gray-300 px-4 py-2 outline-none transition-all focus:border-transparent focus:ring-2 focus:ring-navy"
             required
           />
         </div>
 
         <div>
-          <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-2">
+          <label htmlFor="email" className="mb-2 block text-sm font-semibold text-gray-900">
             E-mail
           </label>
           <input
@@ -91,15 +123,16 @@ export default function ContactForm() {
             type="email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 focus:ring-2 focus:ring-navy focus:border-transparent outline-none transition-all"
-            style={{ '--tw-ring-color': 'var(--color-navy)' } as any}
+            maxLength={254}
+            autoComplete="email"
+            className="w-full border border-gray-300 px-4 py-2 outline-none transition-all focus:border-transparent focus:ring-2 focus:ring-navy"
             required
           />
         </div>
       </div>
 
       <div>
-        <label htmlFor="phone" className="block text-sm font-semibold text-gray-900 mb-2">
+        <label htmlFor="phone" className="mb-2 block text-sm font-semibold text-gray-900">
           Telefone / WhatsApp
         </label>
         <input
@@ -108,14 +141,15 @@ export default function ContactForm() {
           type="tel"
           value={formData.phone}
           onChange={handleChange}
-          className="w-full px-4 py-2 border border-gray-300 focus:ring-2 focus:ring-navy focus:border-transparent outline-none transition-all"
-          style={{ '--tw-ring-color': 'var(--color-navy)' } as any}
+          maxLength={40}
+          autoComplete="tel"
+          className="w-full border border-gray-300 px-4 py-2 outline-none transition-all focus:border-transparent focus:ring-2 focus:ring-navy"
           required
         />
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-sm font-semibold text-gray-900 mb-2">
+        <label htmlFor="message" className="mb-2 block text-sm font-semibold text-gray-900">
           Mensagem
         </label>
         <textarea
@@ -124,22 +158,27 @@ export default function ContactForm() {
           rows={5}
           value={formData.message}
           onChange={handleChange}
-          className="w-full px-4 py-2 border border-gray-300 focus:ring-2 focus:ring-navy focus:border-transparent outline-none transition-all resize-none"
-          style={{ '--tw-ring-color': 'var(--color-navy)' } as any}
+          maxLength={5000}
+          className="w-full resize-none border border-gray-300 px-4 py-2 outline-none transition-all focus:border-transparent focus:ring-2 focus:ring-navy"
           required
         />
       </div>
 
+      {errorMessage && (
+        <p className="border border-red-200 bg-red-50 p-3 text-center text-sm text-red-700" role="alert">
+          {errorMessage}
+        </p>
+      )}
+
       <button
         type="submit"
         disabled={isLoading}
-        className="w-full py-3 font-semibold text-white transition-all hover:shadow-lg disabled:opacity-50"
-        style={{ backgroundColor: 'var(--color-navy)' }}
+        className="w-full bg-navy py-3 font-semibold text-white transition-all hover:bg-bronze hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50"
       >
-        {isLoading ? 'Enviando...' : 'Enviar mensagem'}
+        {isLoading ? "Enviando..." : "Enviar mensagem"}
       </button>
 
-      <p className="text-sm text-gray-400 text-center">
+      <p className="text-center text-sm text-gray-400">
         Ao enviar, você concorda com nossa política de privacidade.
       </p>
     </form>
